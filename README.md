@@ -1,4 +1,4 @@
-# decision-optimization-case-study
+# Develop an intelligent inventory and distribution strategy using AI 
 
 One of the most important parts of being a retail store today, going against the likes of Amazon, Etsy, and 
 the other multitudes of online stores is optimizing inventory. If you have too much inventory, you're 
