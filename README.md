@@ -19,7 +19,7 @@ manager of multiple stores, we want to ensure that our supply chain is as effici
 the most direct route, so that inventory is filled quickly, in a cost-effective manner. 
 
 Using this scenario as our case study, we will take the view of the procurement manager. The procurement 
-manager is notified by Michelle, the retail store manager that inventory for certain cleaning supplies 
+manager is notified by Lauren, the retail store manager that inventory for certain cleaning supplies 
 has been exhausted days ahead of schedule. Bob, the procurement manager, gives the task to the development 
 team to take the last month of inventory data as a way to train a new machine learning model, which is 
 able to predict demand in the future more accurately and find the optimal routes for the supply to reach
@@ -48,16 +48,16 @@ Once Joe is his happy with the demand model, he will move on to optimizing inven
 and distribution routes. It is very important that the demand model is as accurate as 
 possible, since that demand will be fed in as a constraint to optimize inventory.
 Bob realizes that there are software packages that can easily solve this 
-problem for him, including the CPLEX developed by IBM. He uses CPLEX to identify the constraints, 
+problem for him, including the CPLEX library developed by IBM. He uses CPLEX to identify the constraints, 
 namely the distribution centers, and the the max amount of inventory the store can carry, and he uses this 
 to build his solution.
 
 ## Create a machine learning model to optimize distribution routes based on inventory 
 Once Joe has built the solution to optimize inventory levels based on demand, the last 
 part of the solution will be to pick the optimal routes and distribution centers to 
-replenish inventory levels. Using relocation and IBM's Decision Optimization engine,
+replenish inventory levels. Using geolocation and IBM's Decision Optimization engine,
 Joe is able to find the optimal route, which will not only save money for the corporation
-but also ensure that customer are happy. 
+but also ensure that customers are happy. 
 
 ## Create a web-application for the procurement manager to use
 To make his machine learning model easy to use, Joe quickly builds a web-app 
