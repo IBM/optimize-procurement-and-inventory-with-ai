@@ -51,10 +51,27 @@ Watson Studio instance page, which says `Welcome to Watson Studio. Let's get sta
 
 * Click on your newly created project.
 
-* Once you have created your Watson Studio Project, you see a blue `Add to Project` button on the top-right corner of your screen. Click on `Add to Project` and then select `Modeler Flow`. 
+* Once you have created your Watson Studio Project, you see a blue `Add to Project` button on the top-right corner of your screen. 
 
 ![addProj](../images/addProj.png)
 
+* Click on `Add to Project` and then select `Modeler Flow`. 
+
 ![addProj](../images/modelerFlow.png)
 
-* Next, select `From File` and `browse` to where you cloned this repository. Select the `demandForecast.str` file. Next, click `Create`.
+* Next, select `From File` and `browse` to where you cloned this repository. Select the `Demand Forecast.str` file. Next, click `Create`.
+
+![addProj](../images/newFlow.png)
+
+* SPSS Modeler will then ask you to migrate nodes. Click on `Yes`.
+
+![addProj](../images/migrate.png)
+
+* For the import node, click on `Data Assets` and then choose the `TM1 Import.csv` file, which contains our demand data for our retail products. Next, click `OK`.
+
+![addProj](../images/import.png)
+
+* For the export node, click on `Target Path` and then choose type out `predictedDemand`. This will be the file name that is created when our model outputs the
+predicted demand. This file will be saved to our current project in Watson Studio. Click `Migrate`.
+
+![addProj](../images/export.png)
