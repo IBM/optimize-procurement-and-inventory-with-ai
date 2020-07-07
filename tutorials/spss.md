@@ -96,3 +96,37 @@ Watson Studio instance page, which says `Welcome to Watson Studio. Let's get sta
 predicted demand. This file will be saved to our current project in Watson Studio. Click `Migrate`.
 
 ![addProj](../images/export.png)
+
+## Profile your data
+
+Before we do any analysis and predictions on the data, it's 
+a good idea to explore your data set. 
+
+* From the `Data Import` node, hover over the node and 
+click on the three-dot symbol to the right of the node. Next,
+click on `Profile`.
+
+![addProj](../images/profile.png)
+
+* Once the node loads, you will see a preview of the data set.
+Click on `Profile` from the top of the screen to see 
+some graphs which show the frequency of the values for the
+features in your data set. 
+
+![addProj](../images/profile2.png)
+
+* Here you can notice that our data set which describes the 
+demand at our retail store is broken up by 
+month, in the `Period` column. Also, it provides further 
+details on the markets our retail store operates in. 
+
+* For the purpose of our demo, the most important column is `Actuals`
+which is the amount of demand that we have per product. Some of the 
+statistics on this show that the median `Actuals` value is 59.5, and 
+the maximum being `115`. This is great to know, since we want to ensure
+that we can stock up inventory to the max level, so that we know that 
+we will not run out of stock. 
+
+* Once you are done exploring the data set, you can return back to the flow
+by clicking on the flow name in the top-left breadcrumb.
+
