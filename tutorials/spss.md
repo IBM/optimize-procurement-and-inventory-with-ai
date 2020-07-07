@@ -1,4 +1,4 @@
-## Use SPSS Modeler to predict demand for retail
+# Use SPSS Modeler to predict demand for retail
 
 As mentioned in our previous article, our goal is to build an intelligent inventory and distribution strategy using AI. In this part of the 
 solution, we will work on predicting future demand of our products to help us determine our optimal inventory level. Currently, our 
@@ -12,7 +12,7 @@ model with the data.
 This tutorial assumes you have an IBM Cloud account. Go to the link below to sign up for a no-charge trial account - no credit card required.
   - [IBM Cloud account](https://tinyurl.com/y4mzxow5)
 
-### Create a modeler flow within Watson Studio on IBM Cloud to view the data
+##  Watson Studio on IBM Cloud to view the data
 The first step in this tutorial is to set up your IBM Cloud [Watson Studio service](https://cloud.ibm.com/catalog/services/watson-studio). See the video below to help you create your free
 IBM Watson Studio service.
 
@@ -33,6 +33,7 @@ to understand the main functionality of the service.
 
 ![watsonStudio](https://media.github.ibm.com/user/79254/files/e493eb80-8626-11ea-87b5-f1c7cf8d50e0)
 
+## Create a project in Watson Studio
 
 * To launch your Watson Studio service, go back to the home page by clicking on `IBM Cloud` in the top-left corner. There you see your services, and under there you should see your service name. This might take a minute or two to update. 
 
