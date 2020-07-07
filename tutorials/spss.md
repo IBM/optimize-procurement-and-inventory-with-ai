@@ -12,7 +12,7 @@ model with the data.
 This tutorial assumes you have an IBM Cloud account. Go to the link below to sign up for a no-charge trial account - no credit card required.
   - [IBM Cloud account](https://tinyurl.com/y4mzxow5)
 
-##  Watson Studio on IBM Cloud to view the data
+## Create Watson Studio service on IBM Cloud
 The first step in this tutorial is to set up your IBM Cloud [Watson Studio service](https://cloud.ibm.com/catalog/services/watson-studio). See the video below to help you create your free
 IBM Watson Studio service.
 
@@ -50,6 +50,24 @@ Watson Studio instance page, which says `Welcome to Watson Studio. Let's get sta
 
 ![createProj](https://user-images.githubusercontent.com/10428517/81858932-5fab3c00-9519-11ea-9301-3f55d9e2e98d.gif)
 
+## Add a Data Asset to your Watson Studio project
+
+* Once you have created your Watson Studio Project, you see a blue `Add to Project` button on the top-right corner of your screen. 
+
+![addProj](../images/addData.png)
+
+* Select `Data`.
+
+* On the right-hand side bar, click on `browse` and then go to where you cloned the repository, and select `TM1 Import.csv`.
+
+![addProj](../images/browse.png)
+
+* Once the upload has finished, you should see `Upload Successful` as shown below. 
+
+![addProj](../images/success.png)
+
+## Add a Modeler Flow to your Watson Studio Project
+
 * Click on your newly created project.
 
 * Once you have created your Watson Studio Project, you see a blue `Add to Project` button on the top-right corner of your screen. 
@@ -63,6 +81,8 @@ Watson Studio instance page, which says `Welcome to Watson Studio. Let's get sta
 * Next, select `From File` and `browse` to where you cloned this repository. Select the `Demand Forecast.str` file. Next, click `Create`.
 
 ![addProj](../images/newFlow.png)
+
+## Update your Modeler Flow with data sources
 
 * SPSS Modeler will then ask you to migrate nodes. Click on `Yes`.
 
