@@ -118,7 +118,8 @@ features in your data set.
 * Here you can notice that our data set which describes the 
 demand at our retail store is broken up by 
 month, in the `Period` column. Also, it provides further 
-details on the markets our retail store operates in. 
+details on the markets our retail store operates in in the 
+`Markets` column. 
 
 * For the purpose of our demo, the most important column is `Actuals`
 which is the amount of demand that we have per product. Some of the 
@@ -129,4 +130,29 @@ we will not run out of stock.
 
 * Once you are done exploring the data set, you can return back to the flow
 by clicking on the flow name in the top-left breadcrumb.
+
+## Understand the Data Prep nodes
+
+Next, we will focus on the data prep nodes. These are the nodes
+which will modify our data set to predict just the values we want. A great way to understand what each node is 
+doing is to `Preview` the node.
+
+* To preview a node, such as the `TM1 Import` node, hover over the node, and click on the three-dot symbol.
+
+![addProj](../images/threeDot.png)
+
+* Next, click on `Preview`.
+
+![addProj](../images/preview.png)
+
+* This is a quick and easy way to see what the data looks like at the current node in the flow. Below is what you should see 
+once you've previewed the node.
+
+![addProj](../images/previewData.png)
+
+* The Date node adds another column to the data set, called 
+`Date` and derives that value from the `Period` column. 
+
+![addProj](../images/date.png)
+
 
