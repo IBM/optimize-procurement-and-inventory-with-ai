@@ -148,11 +148,22 @@ doing is to `Preview` the node.
 * This is a quick and easy way to see what the data looks like at the current node in the flow. Below is what you should see 
 once you've previewed the node.
 
-![addProj](../images/previewData.png)
+![addProj](../images/dataPreview.png)
 
 * The Date node adds another column to the data set, called 
 `Date` and derives that value from the `Period` column. 
 
 ![addProj](../images/date.png)
 
+* The `Filter` node, which comes right after the `Date` node, takes out the `Statistical Base Forecast column`, and leaves the other columns as is.
+
+* Next, the `Select` node is very important. It's going to take a subset of the data, and it will use an expression to do so. You can 
+see in the expression, we have only taken the `US` markets, and the `Date` when it is before Jan 2019. This will enable use to make more 
+specific predictions, only for the `US` market, since that is where our retail store manager that we want to focus on is located. If you 
+preview this node, you will see that the `Markets` column does not feature any value other than `US`.
+
+![addProj](../images/select.png)
+
+* The last of the data prep nodes is the `Type` node. This enables us to make specific operations on the fields within our data set. In 
+this node, we convert the `Period` column to be of the same format as the `Date` column.
 
