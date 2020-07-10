@@ -23,22 +23,15 @@ This tutorial assumes you have an IBM Cloud account. Go to the link below to sig
 Completing this tutorial should take about 30 minutes.
 
 ## Steps
-Import the data
-Inspect the data
-Data preparation
-Train the ML Model
-Evaluate the results
 
 1. [Create Watson Studio service on IBM Cloud](#1-Create-a-Watson-Studio-service-on-IBM-Cloud)
-
 2. [Create a project in Watson Studio and upload the data](#2-create-a-project-in-Watson-Studio-and-upload-the-data)
-
 3. [Add a Modeler Flow to your Watson Studio Project](#3-Add-a-modeler-flow-to-your-watson-studio-project)
-
-4. [Provision Cloudant NoSQL DB and Get Credentials](#4-provision-cloudant-nosql-db-and-get-credentials)
-5. [Web Portal](#5-web-portal)
-6. [Add IBM Cloud Services Credentials to .env file](#6-add-ibm-cloud-services-credentials-to-env-file)
-7. [Run the application](#7-run-the-application)
+4. [Import the data](#4-import-the-data)
+5. [Explore the data](#5-explore-the-data)
+6. [Data preparation](#6-data-exploration)
+7. [Train the ML model](#7-Train-the-ML-model)
+8. [Evaluate the results ](#8-Evaluate-the-results)
 
 ### 1. Create Watson Studio service on IBM Cloud
 
