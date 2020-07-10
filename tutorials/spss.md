@@ -1,18 +1,47 @@
 # Use SPSS Modeler to predict demand for retail
 
 As mentioned in our previous article, our goal is to build an intelligent inventory and distribution strategy using AI. In this part of the 
-solution, we will work on predicting future demand of our products to help us determine our optimal inventory level. Currently, our 
-procurement manager has asked the development team to create a model to optimize inventory and minimize total landed cost. The first 
-part of this solution is to quickly create a model using SPSS Modeler, something that Michelle, our data analyst is very familiar with. As a 
-data analyst, the first step we want to take is to explore the data. Let's quickly setup our IBM Cloud envioronment so that we can view and build a 
-model with the data.
+solution, we will work on predicting future demand of our products to help us determine our optimal inventory level using SPSS Modeler on Watson Studio on IBM Cloud. SPSS Modeler is a data mining and analytics software
+that is used to build predictive models. Using SPSS Modeler on IBM Cloud
+enables data scientists and data analysts to work in a collaborative, cloud-based environment and quickly share their models and results with
+their stakeholders. 
+
+## Learning objectives
+After completing this tutorial, the user will learn: 
+* How to upload data to IBM Watson Studio
+* How to create an SPSS Modeler flow
+* How to use the SPSS tool to profile and analyze data
+* How to modify, filter, and prepare data for AI Model creation
+* How to train a machine learning model with SPSS and evaluate the results
+
 
 ## Prerequisites
-
 This tutorial assumes you have an IBM Cloud account. Go to the link below to sign up for a no-charge trial account - no credit card required.
   - [IBM Cloud account](https://tinyurl.com/y4mzxow5)
 
-## Create Watson Studio service on IBM Cloud
+## Estimated Time
+Completing this tutorial should take about 30 minutes.
+
+## Steps
+Import the data
+Inspect the data
+Data preparation
+Train the ML Model
+Evaluate the results
+
+1. [Create Watson Studio service on IBM Cloud](#1-Create-a-Watson-Studio-service-on-IBM-Cloud)
+
+2. [Create a project in Watson Studio and upload the data](#2-create-a-project-in-Watson-Studio-and-upload-the-data)
+
+3. [Add a Modeler Flow to your Watson Studio Project](#3-Add-a-modeler-flow-to-your-watson-studio-project)
+
+4. [Provision Cloudant NoSQL DB and Get Credentials](#4-provision-cloudant-nosql-db-and-get-credentials)
+5. [Web Portal](#5-web-portal)
+6. [Add IBM Cloud Services Credentials to .env file](#6-add-ibm-cloud-services-credentials-to-env-file)
+7. [Run the application](#7-run-the-application)
+
+### 1. Create Watson Studio service on IBM Cloud
+
 The first step in this tutorial is to set up your IBM Cloud [Watson Studio service](https://cloud.ibm.com/catalog/services/watson-studio). See the video below to help you create your free
 IBM Watson Studio service.
 
@@ -33,7 +62,7 @@ to understand the main functionality of the service.
 
 ![watsonStudio](https://media.github.ibm.com/user/79254/files/e493eb80-8626-11ea-87b5-f1c7cf8d50e0)
 
-## Create a project in Watson Studio
+### 2. Create a project in Watson Studio and upload the data
 
 * To launch your Watson Studio service, go back to the home page by clicking on `IBM Cloud` in the top-left corner. There you see your services, and under there you should see your service name. This might take a minute or two to update. 
 
@@ -50,8 +79,6 @@ Watson Studio instance page, which says `Welcome to Watson Studio. Let's get sta
 
 ![createProj](https://user-images.githubusercontent.com/10428517/81858932-5fab3c00-9519-11ea-9301-3f55d9e2e98d.gif)
 
-## Add a Data Asset to your Watson Studio project
-
 * Once you have created your Watson Studio Project, you see a blue `Add to Project` button on the top-right corner of your screen. 
 
 ![addProj](../images/addData.png)
@@ -66,7 +93,7 @@ Watson Studio instance page, which says `Welcome to Watson Studio. Let's get sta
 
 ![addProj](../images/success.png)
 
-## Add a Modeler Flow to your Watson Studio Project
+### 3. Add a Modeler Flow to your Watson Studio Project
 
 * Click on your newly created project.
 
@@ -82,7 +109,7 @@ Watson Studio instance page, which says `Welcome to Watson Studio. Let's get sta
 
 ![addProj](../images/newFlow.png)
 
-## Update your Modeler Flow with data sources
+### 4. Import the data
 
 * SPSS Modeler will then ask you to migrate nodes. Click on `Yes`.
 
@@ -97,7 +124,7 @@ predicted demand. This file will be saved to our current project in Watson Studi
 
 ![addProj](../images/export.png)
 
-## Profile your data
+### 5. Explore the data
 
 Before we do any analysis and predictions on the data, it's 
 a good idea to explore your data set. 
@@ -131,8 +158,7 @@ we will not run out of stock.
 * Once you are done exploring the data set, you can return back to the flow
 by clicking on the flow name in the top-left breadcrumb.
 
-## Understand the Data Prep nodes
-
+### 6. Data preparation
 Next, we will focus on the data prep nodes. These are the nodes
 which will modify our data set to predict just the values we want. A great way to understand what each node is 
 doing is to `Preview` the node.
@@ -165,5 +191,14 @@ preview this node, you will see that the `Markets` column does not feature any v
 ![addProj](../images/select.png)
 
 * The last of the data prep nodes is the `Type` node. This enables us to make specific operations on the fields within our data set. In 
-this node, we convert the `Period` column to be of the same format as the `Date` column.
+this node, we split the `Products` column into individual values, so that we can later predict demand 
+for each of our products within that column.
 
+![addProj](../images/type.png)
+
+### 7. Train the ML model
+
+
+### 8. Evaluate the results 
+
+### Summary 
