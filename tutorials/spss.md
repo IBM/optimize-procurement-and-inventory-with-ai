@@ -244,11 +244,23 @@ updated.
 ### 8. Evaluate the results 
 
 * Double-click on `Analysis of [29 fields]` in the Outputs tab.
-Here you can see an assessment of the mean error, 
+Here you can see an assessment of the mean error, maximum error
+and other values which compare the `$TS-Products_Actuals_Max` i.e. the maximum demand forecasted by the model for a particular product, versus `Products_Actuals_Max` which is the max which has 
+been recorded for the training period i.e. 2016-2018.
 
 ![addProj](../images/29fields.png)
 
 * Double-click on `Analysis of [10 fields]` in the Outputs tab.
+Here you will see a visual representation of a few of the 
+interesting products which have shown to have spiked in demand
+over the past three months of training data. In October, 
+November, and December of 2018, these five particular products,
+masks, hand sanitizer, and spray cleaner have all spiked in 
+demand, much higher than previously recorded, such that the 
+forecasted values for 2019, the year we are predicting, are all
+much higher due to these three months of training data. We can see this by the slope of the line increasing drastically in the 
+`$TS-Products_Actuals_Max` charts vs. the `Products_Actuals_Max`
+charts.
 
 ![addProj](../images/10fields.png)
 
