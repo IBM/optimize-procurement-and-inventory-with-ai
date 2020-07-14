@@ -169,7 +169,10 @@ once you've previewed the node.
 
 ![addProj](../images/dataPreview.png)
 
-* The Date node adds another column to the data set, called 
+* Hover over the `Date` node, click on the `Three-dot` symbol, 
+and then on `Preview`.
+
+* Once you preview the node, you should see that the Date node adds another column to the data set, called 
 `Date` and derives that value from the `Period` column. 
 
 ![addProj](../images/date.png)
@@ -189,9 +192,64 @@ for each of our products within that column.
 
 ![addProj](../images/type.png)
 
+* Next, the restructure node creates new columns for the dataset. It takes the values from the 
+`Products` column, and adds the `Actual` demand value for that product, in a separate column, so that
+demand for a specific product is easily distinguishable.
+
+* Hover over the `Restructure` node, click on the `Three-dot` symbol, and then `Preview` to see the
+new columns that are added to our data set.
+
+![addProj](../images/restructure.png)
+
+* Also, feel free to `Open` the node as well, which will show you how we generated multiple fields
+from merging the `Products` and `Actuals` columns.
+
+![addProj](../images/openRestructure.png)
+
+* Hover over the `Aggregate` and then click `Open`. 
+There, you will see that we are taking the largest
+value from the fields such as `Products_mask_Actuals` that we created above. This is because we want  and ensure we have enough in inventory to 
+satisfy the maximum demand.
+
+![addProj](../images/aggregate.png)
+
+* Similarly, hover over the `Aggregate` node, click on the `Three-dot` symbol, and then `Preview` to see the
+new columns with the `_Max` suffix added to them.
+
+![addProj](../images/aggregatePreview.png)
+
+* Hover over the `Type` and then click `Open`. 
+There, you will see we've designated the new
+fields that we created in the previous steps 
+as the target variables, since we want to predict 
+the max demand for each of the products within 
+the `Products` column, within the `US` market.
+
+![addProj](../images/aggregate.png)
+
 ### 7. Train the ML model
 
+* Hover over the `29 fields` golden nugget and then click `Run`. 
+This will run the time-forecasting model with the data we have 
+prepared in the previous steps.
+
+![addProj](../images/runModel.png)
+
+* Once the model 
+has finished running, you will see the Outputs tab has been
+updated.
+
+![addProj](../images/outputs.png)
 
 ### 8. Evaluate the results 
+
+* Double-click on `Analysis of [29 fields]` in the Outputs tab.
+Here you can see an assessment of the mean error, 
+
+![addProj](../images/29fields.png)
+
+* Double-click on `Analysis of [10 fields]` in the Outputs tab.
+
+![addProj](../images/10fields.png)
 
 ### Summary 
