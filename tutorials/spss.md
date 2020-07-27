@@ -122,18 +122,18 @@ predicted demand. This file will be saved to our current project in Watson Studi
 Before we do any analysis and predictions on the data, it's 
 a good idea to explore your data set. 
 
-* From the `Data Import` node, hover over the node and 
+* From the `Data Import` section, hover over the green node that
+says "6 Fields" and 
 click on the three-dot symbol to the right of the node. Next,
-click on `Profile`.
+click on `Run`.
 
-![addProj](../images/profile.png)
+![addProj](../images/dataAuditRun.png)
 
-* Once the node loads, you will see a preview of the data set.
-Click on `Profile` from the top of the screen to see 
-some graphs which show the frequency of the values for the
-features in your data set. 
+* Once the node runs, click on 
+the Clock icon. Next, under the `Outputs` section
+should be a section which says `Data Audit of [6 Fields]`. Double-click on that section.
 
-![addProj](../images/profile2.png)
+![addProj](../images/dataAuditOutput.png)
 
 * Here you can notice that our data set which describes the 
 demand at our retail store is broken up by 
@@ -141,12 +141,15 @@ month, in the `Period` column. Also, it provides further
 details on the markets our retail store operates in in the 
 `Markets` column. 
 
-* For the purpose of our demo, the most important column is `Actuals`
+![addProj](../images/dataAudit.png)
+
+
+<!-- * For the purpose of our demo, the most important column is `Actuals`
 which is the amount of demand that we have per product. Some of the 
 statistics on this show that the median `Actuals` value is 59.5, and 
 the maximum being `115`. This is great to know, since we want to ensure
 that we can stock up inventory to the max level, so that we know that 
-we will not run out of stock. 
+we will not run out of stock.  -->
 
 * Once you are done exploring the data set, you can return back to the flow
 by clicking on the flow name in the top-left breadcrumb.
