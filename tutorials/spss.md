@@ -135,11 +135,15 @@ should be a section which says `Data Audit of [6 Fields]`. Double-click on that 
 
 ![addProj](../images/dataAuditOutput.png)
 
-* Here you can notice that our data set which describes the 
-demand at our retail store is broken up by 
-month, in the `Period` column. Also, it provides further 
-details on the markets our retail store operates in in the 
-`Markets` column. 
+* Here you you can get a visual representation of your data set, 
+and see some sample graphs of your columns. You can see some 
+statistical measures such as max, mean, standard deviation and 
+how many fields are valid. You can see that the max for our Actuals
+field (which is the demand for our product) is 331, but the mean 
+is much lower, at 44. Lastly, you can see how many valid records there are for each column. Once you are done auditing the data, go back to your flow.
+
+
+
 
 ![addProj](../images/dataAudit.png)
 
