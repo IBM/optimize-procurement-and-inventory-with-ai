@@ -140,20 +140,9 @@ and see some sample graphs of your columns. You can see some
 statistical measures such as max, mean, standard deviation and 
 how many fields are valid. You can see that the max for our Actuals
 field (which is the demand for our product) is 331, but the mean 
-is much lower, at 44. Lastly, you can see how many valid records there are for each column. Once you are done auditing the data, go back to your flow.
-
-
-
+is much lower, at 44. Lastly, you can see how many valid records there are for each column. 
 
 ![addProj](../images/dataAudit.png)
-
-
-<!-- * For the purpose of our demo, the most important column is `Actuals`
-which is the amount of demand that we have per product. Some of the 
-statistics on this show that the median `Actuals` value is 59.5, and 
-the maximum being `115`. This is great to know, since we want to ensure
-that we can stock up inventory to the max level, so that we know that 
-we will not run out of stock.  -->
 
 * Once you are done exploring the data set, you can return back to the flow
 by clicking on the flow name in the top-left breadcrumb.
