@@ -1,7 +1,7 @@
-Plants,Cost,Capacity,Product
-Los Angeles,3,40,mask
-Mexico City,2,30,mask
-Toronto,1,30,handSanitizer
-Chicago,3,100,handSanitizer
-London,2,60,mask
-Los Angeles 2,1,45,mask
+Plants,Location,Cost,Capacity,Product
+1,Los Angeles,3,40,mask
+2,Mexico City,2,30,mask
+3,Toronto,1,30,handSanitizer
+4,Chicago,3,100,handSanitizer
+5,London,2,60,mask
+6,Los Angeles 2,1,45,mask
