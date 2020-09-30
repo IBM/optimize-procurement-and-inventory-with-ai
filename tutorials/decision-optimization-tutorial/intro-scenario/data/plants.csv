@@ -4,4 +4,4 @@ Plants,Location,Cost,Capacity,Product
 3,Toronto,1,30,handSanitizer
 4,Chicago,3,100,handSanitizer
 5,London,2,60,mask
-6,Los Angeles 2,1,45,mask
+6,Los Angeles,1,45,mask
