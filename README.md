@@ -26,7 +26,7 @@ predict demand in the future which will help optimize demand and find the optima
 the retail stores. In the next few paragraphs, we will explain how the development team will use machine 
 learning tools and techniques to solve this problem.
 
-![flow-diagrm](images/flow-diagram.png)
+![flow-diagrm](tutorials/images/flow-diagram.png)
 
 ## Set up IBM Cloud Pak for Data on OpenShift
 We use various services that are available within IBM Cloud Pak for Data to analyze data, build, deploy, and monitor the machine learning model. IBM Cloud Pak for Data is a data and AI platform that runs on a RedHat OpenShift Kubernetes Container.
