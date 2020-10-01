@@ -1,11 +1,7 @@
 # Use Decision Optimization to minimize the cost of distribution 
+ This hands-on lab is created around the persona of a store manager. The manager has information about the demand, and wants to ensure that inventory is optimized by minimizing the cost of distribution. There are many distribution plants to pick from, each with their own capacity and their own cost. Our goal is to minimize the total cost, while still ensuring we meet all of the demand.
 
-Decision Optimization adds prescriptive analytics capabilities to IBM Watson Studio and IBM Watson Machine Learning. This hands-on lab is created around the persona of a store manager. The manager has information about the demand, and wants to ensure that inventory is optimized by minimizing the cost of distribution. There are many distribution plants to pick from, each with their own capacity and their own cost. Our goal is to minimize the total cost, while still ensuring we meet all of the demand.
-
-
-In the previous tutorial we used SPSS Modeler to build a model to predict demand. We will use that predicted
-demand from the previous tutorial to ensure we optimize our inventory to meet that demand, all while using 
-Decision Optimization to minimize cost. As you can see below, we will use the demand as input, 
+In the previous tutorial we used SPSS Modeler to build a model to predict demand. As you can see below, we will use the demand as input, 
 and other information about the distribution plants such as production cost and capacity, to reach
 our goal of minimizing overall cost.
 
