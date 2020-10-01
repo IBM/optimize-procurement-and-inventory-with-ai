@@ -12,14 +12,14 @@ our goal of minimizing overall cost.
 As shown below, there are 5 main steps in order to reach an optimal decision. As users of Decision Optimization, we are only concerned with step 1 and step 2. We want to formulate the business problem, as 
 an optimization problem. That means we have to create data tables to represent our business problem.
 
-## What is an Optimization Problem?
+### What is an Optimization Problem?
 
 An Optimization problem is the problem of finding the best solution from all possible solutions. We 
 do this by defining objectives, constraints, and decision variables. 
 
 ![importProj](../images/DO-process.jpg)
 
-## What is an Optimization Model?
+### What is an Optimization Model?
 
 We have to create an optimization model in order to ensure that our CPLEX Optimization engine
 knows how to solve the correct problem. Let's take a look at the optimization model in more detail.
@@ -43,13 +43,11 @@ A decision variable is a quantity that the decision-maker controls. In our case,
 the CPLEX Optimization engine, and the quantity that it controls is the quantity of each product to 
 be produced at a particular plant.
 
-Now that you understand the main parts of the optimization process, let's take a look at how optimization 
-techniques can bring you value.
 
-### Optimization Use Cases
+<!-- ### Optimization Use Cases
 
 Some of the main use cases for optimization are portfolio allocation based on risk-reward, allocation of 
-human resources, and determining which plant should manufacture which product, which is the focus of this tutorial.
+human resources, and determining which plant should manufacture which product, which is the focus of this tutorial. -->
 <!-- 
 ![importProj](../images/use-cases.png)
 
