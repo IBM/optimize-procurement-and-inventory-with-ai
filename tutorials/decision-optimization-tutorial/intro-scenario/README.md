@@ -5,7 +5,28 @@ In the previous tutorial we used SPSS Modeler to build a model to predict demand
 and other information about the distribution plants such as production cost and capacity, to reach
 our goal of minimizing overall cost.
 
+## Learning Objectives
+
+In this tutorial, you will explore the following key capabilities:
+ * You will learn how to build Optimization model
+ * A model builder to guide developers through the typical optimization development steps
+ * Dashboards for communicating the optimization model results
+
+## Prerequisites
+
+Required software, access, and files
+To complete this lab, you will need:
+* IBM Cloud Pak for Data
+* IBM Watson Machine Learning Service
+
+## Estimated Time
+After the prerequisites are met, it should take you around 35-45 minutes to complete this tutorial.
+
+If you are familiar with optimization problems, you can skip down to step 1.
+
 ![importProj](../images/DO-inputs.png)
+
+## Intro to Decision Optimization (Skip down to steps if familiar with Optimization problems)
 
 ### How should I use Decision Optimization to reach an optimal solution?
 
@@ -44,31 +65,188 @@ the CPLEX Optimization engine, and the quantity that it controls is the quantity
 be produced at a particular plant.
 
 
-<!-- ### Optimization Use Cases
+
+
+### Optimization Use Cases
 
 Some of the main use cases for optimization are portfolio allocation based on risk-reward, allocation of 
-human resources, and determining which plant should manufacture which product, which is the focus of this tutorial. -->
-<!-- 
+human resources, and determining which plant should manufacture which product, which is the focus of this tutorial.
+
 ![importProj](../images/use-cases.png)
 
+## Steps
 
-In this tutorial, you will explore the following key capabilities:
- * You will learn how to build Optimization model
- * A model builder to guide developers through the typical optimization development steps
- * Dashboards for communicating the optimization model results
+1. [Create Watson Studio service](#1-Create-watson-studio-service)
 
-Required software, access, and files
-To complete this lab, you will need:
-• IBM Cloud Pak for Data
-. IBM Watson Machine Learning Service
+2. [Create a project](#2-Create-a-project)
+
+3. [Create a Decision Optimization experiment](#3-create-a-decision-optimization-experiment)
+
+4. [Explore other options](#4-explore-other-options)
+
+5. [Run the model](#5-run-the-model)
+
+6. [Explore solution](#6-explore-solution)
+
+7. [Create a new scenario different model same data](#7-create-a-new-scenario-different-model-same-data)
+
+8. [Visualization within model builder](#8-visualization-within-model-builder)
+
+9. [Generating a Python notebook from your scenario](#9-generating-a-python-notebook-from-your-scenario)
+
+10. [Additional examples for different domains](#10-additional-examples-for-different-domains)
 
 
-You will also need to download and unzip the files in [data folder](https://github.com/nmdoshi/WatsonStudio-Tutorial-COVID19-Analysis/tree/master/Tutorial3%20-%20Decision%20Optimization/data)
 
- We will be using decision optimization model builder for this tutorial. To learn more about model builder please click [here](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/do/DODS_Mdl_Assist/exhousebuildintro.html)
+### 1. Create Watson Studio service
+
+First login to your IBM Cloud account. Use the video below for directions on how to create IBM Watson Studio Service.
+
+![watsonStudio](https://media.github.ibm.com/user/79254/files/e493eb80-8626-11ea-87b5-f1c7cf8d50e0)
+
+* After logging into IBM Cloud, click `Proceed` to show that you have read your data rights.
+
+* Click on `IBM Cloud` in the top left corner to ensure you are on the home page.
+
+* Within your IBM Cloud account, click on the top search bar to search for cloud services and offerings. Type in `Watson Studio` and then click on `Watson Studio` under `Catalog Results`.
+
+* This takes you to the Watson Studio service page. There you can name the service as you wish. For example, one may name it 
+`Watson-Studio-trial`. You can also choose which data center to create your instance in. The gif above shows mine as 
+being created in Dallas.
+
+* For this guide, you choose the `Lite` service, which is no-charge. This has limited compute; it is enough
+to understand the main functionality of the service.
+
+* Once you are satisfied with your service name, and location, and plan, click on create in the bottom-right corner. This creates your Watson Studio instance. 
+
+* Go to https://cloud.ibm.com/resources and then click on your recently created `Watson Studio` service.
+
+![addProj](../images/resources.png)
+
+* Next, click on `Get Started`.
+
+![addProj](../images/get-started.png)
+
+### 2. Create a project
+
+Once you click on your Watson Studio serivce, you should be taken to `Cloud Pak for Data` overview page. From there, click on `Projects`.
+
+![addProj](../images/overview.png)
+
+You will be taken to a page which shows your projects. Click on `New Project`.
+
+![addProj](../images/new-project.png)
+
+Next, you will be given the option to create a project from a file or from scratch. Click on `Create an empty project`.
+
+![addProj](../images/create-project.png)
+
+Next, you will define your project details. First we need to add a storage service. Click on `Add`.
+
+![addProj](../images/add-storage.png)
+
+This will take you to the create Cloud Object Storage page. Name your resource as you wish, and click `Create`.
+
+![addProj](../images/create-storage.png)
+
+Next, once you go back to your new project, your newly created Cloud Object Storage should automatically be detected. Name 
+the project as you want, and click `Create`.
+
+![addProj](../images/create-project-final.png)
+
+### 3. Create a Decision Optimization experiment
+
+Next, from your newly created project, click on `Add to project`.
+
+![addProj](../images/add-to-project.png)
+
+Select `Decision Optimization experiment`.
+
+![addProj](../images/choose-do.png)
+
+You will be taken to the New Decision Optimization experiment page. You'll need a Machine Learning service to work with Decision Optimization. 
+Click on `Add service`.
+
+![addProj](../images/add-service.png)
+
+This will take you to the `Associate service` page. Click on `New service`, unless you already have a Watson Machine Learning service.
+
+![addProj](../images/new-service.png)
+
+Next, click on `Machine Learning`.
+
+![addProj](../images/ml.png)
+
+This will take you to the create Machine Learning service page. Name the service as you want, and then click `Create`.
+
+![addProj](../images/create-ml.png)
+
+You will be directed back to the `Associate service` page. This time, your newly created Machine Learning service should appear. Click on 
+the check-mark next to it, and then on `Associate service`.
+
+![addProj](../images/add-ml.png)
+
+### 4. Create a Deployment space
+
+After you associate your service, you should be taken back ot the `New Decision Optimization experiment` page. Next, we need to add a Deployment space. If you do not have one yet, click on `Create a Deployment space`.
+
+![addProj](../images/create-deploy.png)
+
+Name the deployment space as you want, and then click `Create`.
+
+![addProj](../images/create-deploy2.png)
+
+Back on your `New Decision Optimization experiment` page, your newly created deployment space should be populated. Click `Create`.
+
+![addProj](../images/create-deploy3.png)
+
+### 5. Clone the repo
+
+In a terminal of your choice, issue the following command to clone this repository so that you have all the data files needed for 
+our experiment.
+
+```
+git clone https://github.ibm.com/Horea-Porutiu/decision-optimization-case-study.git
+```
+
+### 6. Prepare the data
+
+Next, from the project overview page click on `Assets` from the top tab, and then go down to your newly created `Decision Optimization experiment` and click on it.
+
+![addProj](../images/do-click.png)
+
+You will then be taken to the `Prepare data` page of your experiment. Click on browse in the top-right to add data.
+
+![addProj](../images/browse.png)
+
+Browse to where you cloned the repository, and go to `decision-optimization-case-study/tutorials/decision-optimization-tutorial/intro-scenario/data` and then select `plants.csv` and `customerDemand.csv` and click `Open`.
+
+![addProj](../images/data.png)
+
+Next click on `Import`.
+
+![addProj](../images/import.png)
+
+Next, from the `Prepare data` page, click on `Run model`.
+
+![addProj](../images/prepare-data.png)
+
+![addProj](../images/model-assist.png)
+![addProj](../images/select-allocate.png)
+![addProj](../images/plants.png)
+![addProj](../images/continue.png)
+![addProj](../images/finish.png)
 
 
-## Step
+
+<!-- You will also need to download and unzip the files in [data folder](https://github.com/nmdoshi/WatsonStudio-Tutorial-COVID19-Analysis/tree/master/Tutorial3%20-%20Decision%20Optimization/data)
+
+ We will be using decision optimization model builder for this tutorial. To learn more about model builder please click [here](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/do/DODS_Mdl_Assist/exhousebuildintro.html) -->
+<!-- 
+
+## Steps
+
+0. [Create IBM Cloud services](#0-Create-watson-studio-service)
 
 1. [Add a Decision Optimization to your Watson Studio Project](#1-Add-a-decision-optimization-to-your-watson-studio-project)
 
@@ -90,6 +268,43 @@ You will also need to download and unzip the files in [data folder](https://gith
 
 10. [Additional examples for different domains](#10-additional-examples-for-different-domains)
 
+### 0. Create IBM Cloud Services 
+
+First login to your IBM Cloud account. Use the video below for directions on how to create IBM Watson Studio Service.
+
+![watsonStudio](https://media.github.ibm.com/user/79254/files/e493eb80-8626-11ea-87b5-f1c7cf8d50e0)
+
+* After logging into IBM Cloud, click `Proceed` to show that you have read your data rights.
+
+* Click on `IBM Cloud` in the top left corner to ensure you are on the home page.
+
+* Within your IBM Cloud account, click on the top search bar to search for cloud services and offerings. Type in `Watson Studio` and then click on `Watson Studio` under `Catalog Results`.
+
+* This takes you to the Watson Studio service page. There you can name the service as you wish. For example, one may name it 
+`Watson-Studio-trial`. You can also choose which data center to create your instance in. The gif above shows mine as 
+being created in Dallas.
+
+* For this guide, you choose the `Lite` service, which is no-charge. This has limited compute; it is enough
+to understand the main functionality of the service.
+
+* Once you are satisfied with your service name, and location, and plan, click on create in the bottom-right corner. This creates your Watson Studio instance. 
+
+![createProj](https://user-images.githubusercontent.com/10428517/81858932-5fab3c00-9519-11ea-9301-3f55d9e2e98d.gif)
+
+* To launch your Watson Studio service, go back to the home page by clicking on `IBM Cloud` in the top-left corner. There you see your services, and under there you should see your service name. This might take a minute or two to update. 
+
+* Once you see your service that you just created, click on your service name, and this takes you to your 
+Watson Studio instance page, which says `Welcome to Watson Studio. Let's get started!`. Click on the `Get Started` button.
+
+* This takes you to the Watson Studio tooling. There you see a heading that says `Start by creating a project` and a button that says `Create Project`. Click on `Create a Project`. Next click on `Create an Empty project`.
+
+* On the create a new project page, name your project. You also need to associate an IBM Cloud Object store instance, so that you store the data set.
+
+* Under `Select Storage service` click on the `Add` button. This takes you to the IBM Cloud Object Store service page. Leave the service on the `Lite` tier and then click the `Create` button at the bottom of the page. You are prompted to name the service and choose the resource group. Once you select a name, click the resource group `Confirm` button. 
+
+* Once you've confirmed your IBM Cloud Object Store instance, you are taken back to the project page. Click on `refresh` and you should see your newly created Cloud Object Store instance under `Storage`. That's it! Now you can click `Create` at the bottom right of the page to create your first IBM Watson Studio project :) 
+
+
 ### 1. Add a Decision Optimization to your Watson Studio Project
 
 * Click on your newly created project.
@@ -98,7 +313,7 @@ You will also need to download and unzip the files in [data folder](https://gith
 
 ![addProj](../images/Tutorial3-Step1-Addtoproject.png)
 
-* Click the `Decision Optimization Experiments`.Select Watson Machine Learning service from the dropdown menu.Note: If Watson Machine Learning service is not available then create a service using Lite plan
+* Click the `Decision Optimization Experiment`. Select a Watson Machine Learning service from the dropdown menu.Note: If Watson Machine Learning service is not available then create a service using Lite plan
 
 ![addProj](../images/Tutorial3-Step1-DOservice.png)
 ![addProj](../images/Tutorial3-Step1-newDOproject.png)
