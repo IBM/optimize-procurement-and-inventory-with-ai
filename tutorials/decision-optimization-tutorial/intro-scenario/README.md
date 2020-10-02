@@ -230,9 +230,15 @@ Next click on `Import`.
 Next, from the `Prepare data` page, click on `Run model`.
 
 ![addProj](../images/prepare-data.png)
-
+Next, click on Modeling assistant.
 ![addProj](../images/model-assist.png)
+Next, you'll be asked to choose the domain of your problem. Choose `Selection and Allocation`.
+
 ![addProj](../images/select-allocate.png)
+
+Next, we will choose the decision variable. This is what the model will be deciding. For us, it's the optimal number of items to be produced at a certain plant.
+
+Choose the `plants` table, and then click `continue`.
 ![addProj](../images/plants.png)
 ![addProj](../images/continue.png)
 ![addProj](../images/finish.png)
