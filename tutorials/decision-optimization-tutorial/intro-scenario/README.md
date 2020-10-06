@@ -5,6 +5,9 @@ In the previous tutorial we used SPSS Modeler to build a model to predict demand
 and other information about the distribution plants such as production cost and capacity, to reach
 our goal of minimizing overall cost.
 
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header "Authorization: Bearer  eyJraWQiOiIyMDIwMDkyMjE4MzMiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJpYW0tU2VydmljZUlkLTBmMTgyY2E0LWNjNDAtNDMwYi04ZGU3LTk3OGU0MzQyYWI0YiIsImlkIjoiaWFtLVNlcnZpY2VJZC0wZjE4MmNhNC1jYzQwLTQzMGItOGRlNy05NzhlNDM0MmFiNGIiLCJyZWFsbWlkIjoiaWFtIiwianRpIjoiMDE0Y2IwMzYtZTk5YS00ZDBhLWEzYTYtNzc3NGU2ZjA3MDZiIiwiaWRlbnRpZmllciI6IlNlcnZpY2VJZC0wZjE4MmNhNC1jYzQwLTQzMGItOGRlNy05NzhlNDM0MmFiNGIiLCJuYW1lIjoid21sIiwic3ViIjoiU2VydmljZUlkLTBmMTgyY2E0LWNjNDAtNDMwYi04ZGU3LTk3OGU0MzQyYWI0YiIsInN1Yl90eXBlIjoiU2VydmljZUlkIiwiYWNjb3VudCI6eyJ2YWxpZCI6dHJ1ZSwiYnNzIjoiZDVhNDRjMTg3ZmFmYjJkZWRhMWE4NTJjZWYzMTEzNmMiLCJmcm96ZW4iOnRydWV9LCJpYXQiOjE2MDE5OTk1NTYsImV4cCI6MTYwMjAwMzE1NiwiaXNzIjoiaHR0cHM6Ly9pYW0uYmx1ZW1peC5uZXQvaWRlbnRpdHkiLCJncmFudF90eXBlIjoidXJuOmlibTpwYXJhbXM6b2F1dGg6Z3JhbnQtdHlwZTphcGlrZXkiLCJzY29wZSI6ImlibSBvcGVuaWQiLCJjbGllbnRfaWQiOiJkZWZhdWx0IiwiYWNyIjoxLCJhbXIiOlsicHdkIl19.KUQCN-lyE3Ht1hg0tw6hgVuuMnPPeQhgHBOAu0DRjaIjPD8fARGjAt16dBf_SBWoUKctRlQ6ROU9pgDkECGGdX9ZoYp6uEL2Tdckl96ly4lf3yrGlDs0taicBrk-qsn928r7SAptzy75BBEnqYktp2Oebq2h8adYVDyTs6a3L_krSgFJ1SeFtc2ADdQ873jNmzLCrmbC-VCPtMa7IZ69dEfX8S1xVVovbKfwmwt9ehlMjAPVdJxHC8uinF7AGifmkRj95zoSQ1TKEOwUVPQjI1x0j7QqjyJRDuWk03pYWuE-3CHEMqkSgccOoS4-huWFEGoNpyVKlqDK5YJzU5mWNA" -d '{"fields": ["age", "sex", "bmi",
+          "children", "smoker", "region"], "values": [[19, 'female', 27.0, 0, 'yes', 'southwest']]}' https://us-south.ml.cloud.ibm.com/ml/v4/deployments/18c7f626-04d2-4d1e-9b9b-b42c013ff2e6/predictions
+
 ## Learning Objectives
 
 In this tutorial, you will explore the following key capabilities:
@@ -242,6 +245,14 @@ Choose the `plants` table, and then click `continue`.
 ![addProj](../images/plants.png)
 ![addProj](../images/continue.png)
 ![addProj](../images/finish.png)
+
+### 7. Add Objectives
+
+![constraints](https://media.github.ibm.com/user/79254/files/d6efae00-07e1-11eb-8ed4-f30f7f553ab7)
+
+### 8. Add Objectives
+
+![addConstraints](https://media.github.ibm.com/user/79254/files/d8b97180-07e1-11eb-8996-00409eb47171)
 
 
 
