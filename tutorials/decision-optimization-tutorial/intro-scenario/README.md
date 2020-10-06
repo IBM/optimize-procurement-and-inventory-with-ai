@@ -26,7 +26,9 @@ If you are familiar with optimization problems, you can skip down to step 1.
 
 ![importProj](../images/DO-inputs.png)
 
-## Intro to Decision Optimization (Skip down to steps if familiar with Optimization problems)
+## Intro to Decision Optimization 
+
+[Skip down to steps if familiar with Optimization problems](https://github.ibm.com/Horea-Porutiu/decision-optimization-case-study/tree/master/tutorials/decision-optimization-tutorial/intro-scenario#steps)
 
 ### How should I use Decision Optimization to reach an optimal solution?
 
