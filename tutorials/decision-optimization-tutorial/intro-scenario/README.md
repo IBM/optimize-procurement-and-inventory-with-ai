@@ -249,37 +249,54 @@ Choose the `plants` table, and then click `continue`.
 
 ### 8. Add Objectives
 
+* Now the first thing we must do after we have prepared our problem statement is to add our objectives.
+
+* First, delete the default objective.
+
+* Next, type in `maximize total plants allocations` into the `Suggestions` box. Click on the plus sign to add it to our model.
+
+* Next, type in `minimize total cost of plants over all allocations` into the `Suggestions`. Add this to our model. 
+
 ![addConstraints](https://media.github.ibm.com/user/79254/files/d8b97180-07e1-11eb-8996-00409eb47171)
 
-Now the first thing we must do after we have prepared our problem statement is to add our objectives.
-
-First, delete the default objective.
-
-Next, type in `maximize total plants allocations` into the `Suggestions` box. Click on the plus sign to add it to our model.
-
-Next, type in `minimize total cost of plants over all allocations` into the `Suggestions`. Add this to our model. 
 
 ### 9. Add Constraints
 
-The default contraint for our problem is to `Synchronize seleciton with plants allocations`. Expand this statement to 
+* The default constraint for our problem is to `Synchronize seleciton with plants allocations`. Expand this statement to 
 define the max and min values. 
 
-Ensure that the max allocation of plants is defined by `Capacity`.
+* Ensure that the max allocation of plants is defined by `Capacity`.
 
-Next, the min assignment of plants is `0`.
+* Next, the min assignment of plants is `0`.
 
-Next, move the slider next to `Maximize total plants allocations` to 10, in order to prioritize this objective.
+* Next, move the slider next to `Maximize total plants allocations` to 10, in order to prioritize this objective.
 
-Next, type in `All plants allocations must be integer` into the `Suggestions`. Add this to our model. 
-
-
+* Next, type in `All plants allocations must be integer` into the `Suggestions`. Add this to our model. 
 
 ![constraints](https://media.github.ibm.com/user/79254/files/d6efae00-07e1-11eb-8ed4-f30f7f553ab7)
 
 
 
 ### 10. Explore Solution
+Next, make sure the objectives and constrains are the same as the screenshot below, and then click on `Run model` from the
+top-right.
+
 ![runModel](https://media.github.ibm.com/user/79254/files/129e6e00-080a-11eb-9897-e103dabd06e5)
+
+* Let's examine our data. Our primary goal with our optimization is to meet demand since we prioritized that objective by moving the slider to 10.
+* We know that demand is 100 for hand sanitizer and 120 for masks.
+* We also know there are two plants that have high cost (3). We want to limit allocating masks and hand sanitizer 
+from those plants as much as possible.
 ![demand](https://media.github.ibm.com/user/79254/files/ad974800-080a-11eb-96ff-568e5d667435)
-![solution](https://media.github.ibm.com/user/79254/files/ad974800-080a-11eb-8fd2-7ad5d6992763)
+* Let's examine the solution. Click on the button next to the magnifying glass to open the table in a full screen.
 ![open](https://media.github.ibm.com/user/79254/files/ae2fde80-080a-11eb-9ebf-24105bb60229)
+* We can now examine the solution. We see that from the plant that produces mask with the highest cost of 3, we have allocated 0. We also see that from the plant that produces hand sanitizer with the highest cost of 3, we allocated only 70 units, which is below capacity of the plant. All other plants allocated all of capacity, other than plant 2 which allocated 15 units to masks, since we already produced enough for demand.
+![solution](https://media.github.ibm.com/user/79254/files/ad974800-080a-11eb-8fd2-7ad5d6992763)
+
+### 11. Conclusion
+<b>Congatulations!</b> You've just finished running your first decision optimization experiment. You know understand 
+how to setup a decision optimization problem, import data, set objectives and contraints, and then run the model. 
+
+In the next part of the tutorial, we will look at a more complex problem with more data tables and more constraints. 
+
+We will also show how to deploy the model to Watson Machine Learning and interact with the model using a web-app.
