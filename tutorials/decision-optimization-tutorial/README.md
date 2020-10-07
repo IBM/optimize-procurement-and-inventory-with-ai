@@ -24,7 +24,7 @@ After the prerequisites are met, it should take you around 35-45 minutes to comp
 
 If you are familiar with optimization problems, you can skip down to step 1.
 
-![importProj](../images/DO-inputs.png)
+![importProj](images/DO-inputs.png)
 
 ## Intro to Decision Optimization 
 
@@ -40,7 +40,7 @@ an optimization problem. That means we have to create data tables to represent o
 An Optimization problem is the problem of finding the best solution from all possible solutions. We 
 do this by defining objectives, constraints, and decision variables. 
 
-![importProj](../images/DO-process.jpg)
+![importProj](images/DO-process.jpg)
 
 ### What is an Optimization Model?
 
@@ -71,7 +71,7 @@ be produced at a particular plant.
 Some of the main use cases for optimization are portfolio allocation based on risk-reward, allocation of 
 human resources, and determining which plant should manufacture which product, which is the focus of this tutorial.
 
-![importProj](../images/use-cases.png)
+![importProj](images/use-cases.png)
 
 ## Steps
 
@@ -110,84 +110,84 @@ to understand the main functionality of the service.
 
 * Go to https://cloud.ibm.com/resources and then click on your recently created `Watson Studio` service.
 
-![addProj](../images/resources.png)
+![addProj](images/resources.png)
 
 * Next, click on `Get Started`.
 
-![addProj](../images/get-started.png)
+![addProj](images/get-started.png)
 
 ### 2. Create a project
 
 Once you click on your Watson Studio service, you should be taken to `Cloud Pak for Data` overview page. From there, click on `Projects`.
 
-![addProj](../images/overview.png)
+![addProj](images/overview.png)
 
 You will be taken to a page which shows your projects. Click on `New Project`.
 
-![addProj](../images/new-project.png)
+![addProj](images/new-project.png)
 
 Next, you will be given the option to create a project from a file or from scratch. Click on `Create an empty project`.
 
-![addProj](../images/create-project.png)
+![addProj](images/create-project.png)
 
 Next, you will define your project details. First we need to add a storage service. Click on `Add`.
 
-![addProj](../images/add-storage.png)
+![addProj](images/add-storage.png)
 
 This will take you to the create Cloud Object Storage page. Name your resource as you wish, and click `Create`.
 
-![addProj](../images/create-storage.png)
+![addProj](images/create-storage.png)
 
 Next, once you go back to your new project, your newly created Cloud Object Storage should automatically be detected. Name 
 the project as you want, and click `Create`.
 
-![addProj](../images/create-project-final.png)
+![addProj](images/create-project-final.png)
 
 ### 3. Create a Decision Optimization experiment
 
 Next, from your newly created project, click on `Add to project`.
 
-![addProj](../images/add-to-project.png)
+![addProj](images/add-to-project.png)
 
 Select `Decision Optimization experiment`.
 
-![addProj](../images/choose-do.png)
+![addProj](images/choose-do.png)
 
 You will be taken to the New Decision Optimization experiment page. You'll need a Machine Learning service to work with Decision Optimization. 
 Click on `Add service`.
 
-![addProj](../images/add-service.png)
+![addProj](images/add-service.png)
 
 This will take you to the `Associate service` page. Click on `New service`, unless you already have a Watson Machine Learning service.
 
-![addProj](../images/new-service.png)
+![addProj](images/new-service.png)
 
 Next, click on `Machine Learning`.
 
-![addProj](../images/ml.png)
+![addProj](images/ml.png)
 
 This will take you to the create Machine Learning service page. Name the service as you want, and then click `Create`.
 
-![addProj](../images/create-ml.png)
+![addProj](images/create-ml.png)
 
 You will be directed back to the `Associate service` page. This time, your newly created Machine Learning service should appear. Click on 
 the check-mark next to it, and then on `Associate service`.
 
-![addProj](../images/add-ml.png)
+![addProj](images/add-ml.png)
 
 ### 4. Create a Deployment space
 
 After you associate your service, you should be taken back ot the `New Decision Optimization experiment` page. Next, we need to add a Deployment space. If you do not have one yet, click on `Create a Deployment space`.
 
-![addProj](../images/create-deploy.png)
+![addProj](images/create-deploy.png)
 
 Name the deployment space as you want, and then click `Create`.
 
-![addProj](../images/create-deploy2.png)
+![addProj](images/create-deploy2.png)
 
 Back on your `New Decision Optimization experiment` page, your newly created deployment space should be populated. Click `Create`.
 
-![addProj](../images/create-deploy3.png)
+![addProj](images/create-deploy3.png)
 
 ### 5. Clone the repo
 
@@ -202,37 +202,37 @@ git clone https://github.ibm.com/Horea-Porutiu/decision-optimization-case-study.
 
 Next, from the project overview page click on `Assets` from the top tab, and then go down to your newly created `Decision Optimization experiment` and click on it.
 
-![addProj](../images/do-click.png)
+![addProj](images/do-click.png)
 
 You will then be taken to the `Prepare data` page of your experiment. Click on browse in the top-right to add data.
 
-![addProj](../images/browse.png)
+![addProj](images/browse.png)
 
 Browse to where you cloned the repository, and go to `decision-optimization-case-study/tutorials/decision-optimization-tutorial/intro-scenario/data` and then select `plants.csv` and `customerDemand.csv` and click `Open`.
 
-![addProj](../images/data.png)
+![addProj](images/data.png)
 
 Next click on `Import`.
 
-![addProj](../images/import.png)
+![addProj](images/import.png)
 
 ### 7. Prepare the Model
 
 Next, from the `Prepare data` page, click on `Run model`.
 
-![addProj](../images/prepare-data.png)
+![addProj](images/prepare-data.png)
 Next, click on Modeling assistant.
-![addProj](../images/model-assist.png)
+![addProj](images/model-assist.png)
 Next, you'll be asked to choose the domain of your problem. Choose `Selection and Allocation`.
 
-![addProj](../images/select-allocate.png)
+![addProj](images/select-allocate.png)
 
 Next, we will choose the decision variable. This is what the model will be deciding. For us, it's the optimal number of items to be produced at a certain plant.
 
 Choose the `plants` table, and then click `continue`.
-![addProj](../images/plants.png)
-![addProj](../images/continue.png)
-![addProj](../images/finish.png)
+![addProj](images/plants.png)
+![addProj](images/continue.png)
+![addProj](images/finish.png)
 
 ### 8. Add Objectives
 
