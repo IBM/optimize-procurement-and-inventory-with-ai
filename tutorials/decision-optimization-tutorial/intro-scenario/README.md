@@ -79,26 +79,16 @@ human resources, and determining which plant should manufacture which product, w
 ## Steps
 
 1. [Create Watson Studio service](#1-Create-watson-studio-service)
-
 2. [Create a project](#2-Create-a-project)
-
 3. [Create a Decision Optimization experiment](#3-create-a-decision-optimization-experiment)
-
-4. [Explore other options](#4-explore-other-options)
-
-5. [Run the model](#5-run-the-model)
-
-6. [Explore solution](#6-explore-solution)
-
-7. [Create a new scenario different model same data](#7-create-a-new-scenario-different-model-same-data)
-
-8. [Visualization within model builder](#8-visualization-within-model-builder)
-
-9. [Generating a Python notebook from your scenario](#9-generating-a-python-notebook-from-your-scenario)
-
-10. [Additional examples for different domains](#10-additional-examples-for-different-domains)
-
-
+4. [Create a Deployment Space](#4-Create-a-deployment-space)
+5. [Clone the Repo](#5-Clone-the-repo)
+6. [Prepare the Data](#6-Prepare-the-data)
+7. [Prepare the Model](#7-Prepare-the-model)
+8. [Add Objectives](#8-Add-Objectives)
+9. [Add Constraints](#9-Add-Constraints)
+10. [Explore Solution](#10-Explore-Solution)
+11. [Conclusion](#11-Conclusion)
 
 ### 1. Create Watson Studio service
 
