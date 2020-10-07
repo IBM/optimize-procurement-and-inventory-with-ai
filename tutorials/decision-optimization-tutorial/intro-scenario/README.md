@@ -291,7 +291,7 @@ We can now examine the solution.
 
 * All other plants allocated all of capacity, other than plant 2 which allocated 15 units to masks, since we already produced enough for demand.
 
-![solution](https://media.github.ibm.com/user/79254/files/ad974800-080a-11eb-8fd2-7ad5d6992763)
+<img width="1664" alt="Screen Shot 2020-10-07 at 12 05 34 PM copy" src="https://media.github.ibm.com/user/79254/files/1c6db300-0896-11eb-9b7c-7ec14b6b9bb1">
 
 ### 11. Conclusion
 <b>Congratulations!</b> You've just finished running your first decision optimization experiment. You know understand 
