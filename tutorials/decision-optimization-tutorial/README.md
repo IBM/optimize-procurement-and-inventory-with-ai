@@ -260,6 +260,10 @@ define the max and min values.
 
 * Next, type in `All plants allocations must be integer` into the `Suggestions`. Add this to our model. 
 
+* Next, type in `for each plants, allocation is less than or equal to Capacity` into the `Suggestions`. Add this to our model. 
+
+* Lastly, type in `for each customerDemand, total allocation of plants (such that plants Product is customerDemand) is less than or equal to Demand` into the `Suggestions`. Add this to our model. 
+
 ![constraints](https://media.github.ibm.com/user/79254/files/d6efae00-07e1-11eb-8ed4-f30f7f553ab7)
 
 

@@ -1,0 +1,91 @@
+Id,Plants,Cost,Capacity,Product,Profit
+1,Los Angeles,3,40,airFreshner,3
+2,Mexico City,2,30,avocado,4
+3,Toronto,1,30,batteries,2
+4,Chicago,3,100,cannedSoup,5
+5,London,2,60,cannedTuna,6
+6,Los Angeles,1,45,chargers,4
+7,Los Angeles,3,40,coffee,3
+8,Mexico City,2,30,flour,2
+9,Toronto,1,30,gloves,3
+10,Chicago,3,100,gum,1
+11,London,2,60,handSanitizer,3
+12,Los Angeles 2,1,45,handSoap,4
+13,Los Angeles,3,40,jackets,5
+14,Mexico City,2,30,jeans,3
+15,Toronto,1,30,lamb,4
+16,Chicago,3,100,mask,2
+17,London,2,60,pens,5
+18,Los Angeles 2,1,45,salmon,6
+19,Los Angeles,3,40,socks,4
+20,Mexico City,2,30,sportsDrink,3
+21,Toronto,1,30,sprayCleaner,2
+22,Chicago,3,100,sunscreen,3
+23,London,2,60,toiletPaper,1
+24,Los Angeles 2,1,45,trailMix,3
+25,Los Angeles,3,40,vegBurger,4
+26,Mexico City,2,30,vitaminC,5
+27,Toronto,1,30,water,3
+28,Chicago,3,100,wine,4
+29,London,2,60,wipes,2
+30,Los Angeles 2,1,45,airFreshner,5
+31,Los Angeles,3,40,avocado,6
+32,Mexico City,2,30,batteries,4
+33,Toronto,1,30,cannedSoup,3
+34,Chicago,3,100,cannedTuna,2
+35,London,2,60,chargers,3
+36,Los Angeles 3,1,45,coffee,1
+37,Los Angeles,3,40,flour,3
+38,Mexico City,2,30,gloves,4
+39,Toronto,1,30,gum,5
+40,Chicago,3,100,handSanitizer,3
+41,London,2,60,handSoap,4
+42,Los Angeles 3,1,45,jackets,2
+43,Los Angeles,3,40,jeans,5
+44,Mexico City,2,30,lamb,6
+45,Toronto,1,30,mask,4
+46,Chicago,3,100,pens,3
+47,London,2,60,salmon,2
+48,Los Angeles 3,1,45,socks,3
+49,Los Angeles,3,40,sportsDrink,1
+50,Mexico City,2,30,sprayCleaner,3
+51,Toronto,1,30,sunscreen,4
+52,Chicago,3,100,toiletPaper,5
+53,London,2,60,trailMix,3
+54,Los Angeles 3,1,45,vegBurger,4
+55,Los Angeles,3,40,vitaminC,2
+56,Mexico City,2,30,water,5
+57,Toronto,1,30,wine,6
+58,Chicago,3,100,wipes,4
+59,London,2,60,airFreshner,3
+60,Los Angeles 3,1,45,avocado,2
+61,Los Angeles,3,40,batteries,3
+62,Mexico City,2,30,cannedSoup,1
+63,Toronto,1,30,cannedTuna,3
+64,Chicago,3,100,chargers,4
+65,London,2,60,coffee,5
+66,Los Angeles 4,1,45,flour,3
+67,Los Angeles,3,40,gloves,4
+68,Mexico City,2,30,gum,2
+69,Toronto,1,30,handSanitizer,5
+70,Chicago,3,100,handSoap,6
+71,London,2,60,jackets,4
+72,Los Angeles 4,1,45,jeans,3
+73,Los Angeles,3,40,lamb,2
+74,Mexico City,2,30,mask,3
+75,Toronto,1,30,pens,1
+76,Chicago,3,100,salmon,3
+77,London,2,60,socks,4
+78,Los Angeles 4,1,45,sportsDrink,5
+79,Los Angeles,3,40,sprayCleaner,3
+80,Mexico City,2,30,sunscreen,4
+81,Toronto,1,30,toiletPaper,2
+82,Chicago,3,100,trailMix,5
+83,London,2,60,vegBurger,6
+84,Los Angeles 4,1,45,vitaminC,4
+85,Los Angeles,3,40,water,3
+86,Mexico City,2,30,wine,2
+87,Toronto,1,30,wipes,3
+88,Chicago,3,100,mask,1
+89,London,2,60,handSanitizer,3
+90,Los Angeles 4,1,45,handSoap,4
