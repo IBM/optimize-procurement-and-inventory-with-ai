@@ -293,6 +293,8 @@ We can now examine the solution.
 
 <img width="1664" alt="Screen Shot 2020-10-07 at 12 05 34 PM copy" src="https://media.github.ibm.com/user/79254/files/1c6db300-0896-11eb-9b7c-7ec14b6b9bb1">
 
+* In conclusion, CPLEX allocated 100 units to the lowest cost plants for creating hand sanitizer, and 120 for masks. We met demand, at the lowest cost possible.
+
 ### 11. Conclusion
 <b>Congratulations!</b> You've just finished running your first decision optimization experiment. You know understand 
 how to setup a decision optimization problem, import data, set objectives and constraints, and then run the model. 
