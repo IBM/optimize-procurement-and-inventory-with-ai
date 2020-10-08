@@ -85,7 +85,8 @@ human resources, and determining which plant should manufacture which product, w
 8. [Add Objectives](#8-Add-Objectives)
 9. [Add Constraints](#9-Add-Constraints)
 10. [Explore Solution](#10-Explore-Solution)
-11. [Conclusion](#11-Conclusion)
+11. [Import Intermediate Scenario](#11-Import-Intermediate-Scenario)
+12. [Conclusion](#12-Conclusion)
 
 ### 1. Create Watson Studio service
 
@@ -249,7 +250,7 @@ Choose the `plants` table, and then click `continue`.
 
 ### 9. Add Constraints
 
-* The default constraint for our problem is to `Synchronize seleciton with plants allocations`. Expand this statement to 
+* The default constraint for our problem is to `Synchronize selection with plants allocations`. Expand this statement to 
 define the max and min values. 
 
 * Ensure that the max allocation of plants is defined by `Capacity`.
@@ -299,7 +300,42 @@ We can now examine the solution.
 
 In conclusion, CPLEX allocated 100 units to the lowest cost plants for creating hand sanitizer, and 120 for masks. We met demand, at the lowest cost possible.
 
-### 11. Conclusion
+### 11. Import Intermediate Scenario
+
+Next, let's import a more complex scenario. Click on the `Scenarios` Button from the top tab.
+
+![addProj](images/scn.png)
+
+From the `Scenarios` tab, click on `Create scenario` and `From file`.
+
+![addProj](images/create-scn.png)
+
+Navigate to where you cloned this repo, and then select go into the `decision-optimization-tutorial/data` and select the `intermediateScenario.zip` file. Click `Open`.
+
+![addProj](images/scn-file.png)
+
+Next, click on `Prepare data` from the left side bar to see the data that is being used for this scenario. You can see here that
+the `customerDemand` table has 29 rows, and that the `plants` table has 90 rows. The `customerDemand` table is taken from the 
+last month of estimated demand from the SPSS Modeler tutorial, and rounded to the nearest integer value. 
+
+It also has an extra column, which is the `Profit` column. 
+The `Profit` column enables us to determine which allocations will bring us the largest profit. 
+
+![addProj](images/prep-data.png)
+
+Next, click on the the `Run model` tab from the left side bar. Here you can see a new objective `Maximize total Profit of plants over all allocations`. Go ahead and `Run model` from the top-right corner.
+
+
+![addProj](images/model-assist-v2.png)
+
+
+
+![addProj](images/soln2.png)
+![addProj](images/final-soln.png)
+
+
+
+### 12. Conclusion
 <b>Congratulations!</b> You've just finished running your first decision optimization experiment. You know understand 
 how to setup a decision optimization problem, import data, set objectives and constraints, and then run the model. 
 
