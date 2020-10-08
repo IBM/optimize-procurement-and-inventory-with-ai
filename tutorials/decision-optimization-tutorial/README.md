@@ -328,9 +328,16 @@ Next, click on the the `Run model` tab from the left side bar. Here you can see 
 
 ![addProj](images/model-assist-v2.png)
 
-
+Once your model has finished running, you can click on `Explore solution` in the left hand side, and then `Solution tables`. Click on 
+the icon next to the magnifying glass to view the solution table in full-screen mode.
 
 ![addProj](images/soln2.png)
+
+Now, we can see the final solution here. We can see that for the highest cost plants, we are still 
+restricting allocation. We are also prioritizing plants to have higher profit over ones that have lower profit.
+
+Great job! You now know how to import scenarios into Decision Optimization.
+
 ![addProj](images/final-soln.png)
 
 
