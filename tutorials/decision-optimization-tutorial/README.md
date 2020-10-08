@@ -340,6 +340,7 @@ Great job! You now know how to import scenarios into Decision Optimization.
 
 ![addProj](images/final-soln.png)
 
+For more complex scenarios, take a look at [DO-samples](https://github.com/IBMDecisionOptimization/DO-Samples) on GitHub.
 
 
 ### 12. Conclusion
