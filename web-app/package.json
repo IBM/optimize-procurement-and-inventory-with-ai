@@ -1,8 +1,8 @@
 {
-  "name": "node-hello-world-minimal",
+  "name": "node-WML",
   "version": "1.0.0",
-  "description": "Node.js minimal example",
-  "author": "Steve Martinelli <s.martinelli@gmail.com>",
+  "description": "Node app",
+  "author": "Horea Porutiu <horeaporutiu@gmail.com>",
   "main": "app.js",
   "license": "Apache-2.0",
   "repository": {
