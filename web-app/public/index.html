@@ -1,17 +1,26 @@
 <!doctype html>
 <html>
   <head>
-    <title>This is the title of the webpage!</title>
+    <title>Decision Optimization</title>
   </head>
-  <body>
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
-  </body>
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
   <!-- <form action="/send" method="POST">
     <input type="text" name="newID" placeholder="Enter your ID"/>
     <input type="submit" value="Click here to submit the form"/>
   </form> -->
 
-  <button id="btn" type="button">Click Me!</button>
+  <!-- <button id="btn1" type="button">CSV!</button>
+  <button id="btn" type="button">Click Me!</button> -->
+
+
+  <form method="post" enctype="multipart/form-data">
+    <input type="file" multiple="multiple" id="customerDemand"  accept=".csv" name="files[]">
+    <input id="csvSubmit" type="submit">
+  </form>
+
+  <p id = "output"></p>
 
 
 <script src="js/script.js"></script>

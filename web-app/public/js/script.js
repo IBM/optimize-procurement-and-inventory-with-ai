@@ -1,70 +1,102 @@
-const data = {
-  "space_id": "6b00e95c-e9c2-438a-a01e-01dee680ef87",
-  "name": "horea-resource12-oct9",
-  "deployment": {
-      "id": "c88bf7b8-5f00-4a9a-be10-67b9e6f24781"
-  },
-  "decision_optimization": {
-    "input_data": [
-      {
-        "id":"customerDemand.csv",
-        "fields" : ["Product","Demand"],
-        "values" : [
-          ["handSanitizer", 100],
-          ["mask", 120]
-        ]
-      },
-      {
-        "id":"plants.csv",
-        "fields" : ["Plants","Cost","Capacity","Product"],
-        "values" : [
-          [1,3,40,"mask"],
-          [2,2,30,"mask"],
-          [3,1,30,"handSanitizer"],
-          [4,3,100,"handSanitizer"],
-          [5,2,60,"mask"],
-          [6,1,45,"mask"]
-        ]
-      }
-    ],
-    "output_data": [
-      {
-        "id":".*\\.csv"
-      }
-  ]
-}
-};
+const form = document.querySelector('form')
 
-function sendData( data ) {
-  console.log( 'Sending data' );
-  // console.log(data)
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
 
-  const XHR = new XMLHttpRequest();
+  // ...
+  const files = document.querySelector('[type=file]').files;
+  const formData = new FormData();
 
-  XHR.addEventListener( 'load', function(event) {
-    alert( 'Yeah! Data sent and response loaded.' );
-  } );
+  for (let i = 0; i < files.length; i++) {
+    let file = files[i]
+  
+    formData.append(i, file)
+  }
+  fetch('http://localhost:8080/send', {
+    method: 'POST',
+    body: formData,
+  }).then((response) => {
+    console.log(response)
+  })
+})
 
-  // Define what happens in case of error
-  XHR.addEventListener( 'error', function(event) {
-    alert( 'Oops! Something went wrong.' );
-  } );
 
-  // Set up our request
-  XHR.open( 'POST', 'http://localhost:8080/send' );
+// async function uploadFile( files ) {
 
-  // Add the required HTTP header for form data POST requests
-  XHR.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
 
-  // Finally, send our data.
-  console.log('sdf')
-  console.log(data)
-  XHR.send( JSON.stringify(data) );
-}
+//   console.log( 'uploadFile files' );
+//   firstFile = files.target.files[0]
+//   console.log( firstFile );
 
-const btn = document.querySelector('button');
+//   // console.log(data)
 
-btn.addEventListener( 'click', function() {
-  console.log('btneventListenr')
-  sendData( data );
-});
+//   var formData = new FormData();
+//   var XHR = new XMLHttpRequest();
+//   // XHR.submittedData = data.target.files; // Array of objects with files included. But it neither works with an array of files nor just one file
+
+//   for (let i = 0; i < files.length; i++) {
+//     console.log(files[i].name)
+//     console.log(files[i])
+//     formData.append(firstFile.name, firstFile)
+//     console.log(formData)
+//   }
+
+
+//   XHR.open( 'POST', 'http://localhost:8080/send' );
+
+//   // Add the required HTTP header for form data POST requests
+//   // XHR.setRequestHeader( 'Content-type', 'application/json');
+
+//   console.log('about to send form data')
+//   console.log(formData.values)
+
+//   XHR.send(formData)
+
+
+
+// }
+
+// async function writeF(file){
+//   var reader = new FileReader();
+
+//         reader.onload = function()
+
+//         {
+
+//             document.getElementById('output').innerText += reader.result;
+
+//         }
+
+//         reader.readAsText(file, "UTF-8");
+
+        
+
+// }
+
+// async function parseCSV(evt){
+
+//   var f = evt.target.files[0]; 
+//   if (f) {
+//     var r = new FileReader();
+//     r.onload = function(e) { 
+//         var contents = e.target.result;
+//         console.log(contents)
+//         var firstLine = contents.split('\n')[0];
+//         console.log(firstLine)
+//         let splits = contents.split('\n')
+//         let val = [];
+//         for (var i = 1; i < splits.length-1; i++) {
+
+//           val.push(splits[i].split('\n'))
+//         }
+//         console.log('val')
+//         console.log(val)
+
+//    }
+//     r.readAsText(f);
+//     document.write(output);
+//   } else { 
+//     alert("Failed to load file");
+//   }
+
+// }
