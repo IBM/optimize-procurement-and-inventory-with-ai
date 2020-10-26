@@ -5,22 +5,26 @@
   </head>
 
   <script src="https://d3js.org/d3.v4.min.js"></script>
-
-  <!-- <form action="/send" method="POST">
-    <input type="text" name="newID" placeholder="Enter your ID"/>
-    <input type="submit" value="Click here to submit the form"/>
-  </form> -->
-
-  <!-- <button id="btn1" type="button">CSV!</button>
-  <button id="btn" type="button">Click Me!</button> -->
-
+  
+<center>
+    <h1>Watson Machine Learning & Decision Optimization Sample App</h1>
+  <br>
 
   <form method="post" enctype="multipart/form-data">
     <input type="file" multiple="multiple" id="customerDemand"  accept=".csv" name="files[]">
     <input id="csvSubmit" type="submit">
   </form>
 
+
+
+  <h3 id = "doOutputText">Decision Optimization Model Output</h3>
   <p id = "output"></p>
+
+
+  <input value="see solution" id="solutionUpdate" type="submit">
+  <h3 id = "doSolText">Decision Optimization Solution</h3>
+  <p id = "solution"></p>
+</center>
 
 
 <script src="js/script.js"></script>
