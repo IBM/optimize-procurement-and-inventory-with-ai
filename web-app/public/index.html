@@ -1,14 +1,19 @@
 <!doctype html>
+
 <html>
   <head>
     <title>Decision Optimization</title>
   </head>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 
   <script src="https://d3js.org/d3.v4.min.js"></script>
   
 <center>
-    <h1>Watson Machine Learning & Decision Optimization Sample App</h1>
+    <h2>Watson Machine Learning & Decision Optimization Sample App</h2>
   <br>
+
+  <img id="demoImg" src="images/demo.png" alt="Demo">
+
 
   <form method="post" enctype="multipart/form-data">
     <input type="file" multiple="multiple" id="customerDemand"  accept=".csv" name="files[]">
@@ -18,12 +23,14 @@
 
 
   <h3 id = "doOutputText">Decision Optimization Model Output</h3>
-  <p id = "output"></p>
+  <div class="loader" id="firstSpinner"></div>
+  <pre id = "output"></pre>
 
 
   <input value="see solution" id="solutionUpdate" type="submit">
   <h3 id = "doSolText">Decision Optimization Solution</h3>
-  <p id = "solution"></p>
+  <div class="loader" id="secondSpinner"></div>
+  <pre id = "solution"></pre>
 </center>
 
 

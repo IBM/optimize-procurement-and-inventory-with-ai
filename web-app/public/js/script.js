@@ -4,12 +4,17 @@ const output = document.getElementById('output')
 const outputText = document.getElementById('doOutputText')
 const doSolText = document.getElementById('doSolText')
 const solution = document.getElementById('solution')
+const firstSpinner = document.getElementById('firstSpinner')
+const secondSpinner = document.getElementById('secondSpinner')
+
 doOutputText.hidden = true;
 doSolText.hidden = true;
 solutionUpdate.hidden = true;
+firstSpinner.hidden = true;
+secondSpinner.hidden = true;
 
 form.addEventListener('submit', async (e) => {
-  output.innerHTML = 'Working...'
+  firstSpinner.hidden = false;
   outputText.hidden = false;
   e.preventDefault()
 
@@ -28,17 +33,19 @@ form.addEventListener('submit', async (e) => {
   })
   var body = await res.text()
   console.log(body)
+  firstSpinner.hidden = true;
   output.innerHTML = body;
   solutionUpdate.hidden = false;
 
 })
 
 solutionUpdate.addEventListener('click', async (e) => {
+  secondSpinner.hidden = false;
   doSolText.hidden = false;
   solution.hidden = false;
-  solution.innerHTML = 'Working...';
   var resp = await fetch('http://localhost:8080/decisionSolution')
   var solBody = await resp.text()
+  secondSpinner.hidden = true;
   solution.innerHTML = solBody;
   console.log(solBody)
 
