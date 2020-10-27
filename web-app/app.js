@@ -7,44 +7,6 @@ var bodyParser = require("body-parser");
 const fileupload = require('express-fileupload')
 const util = require('util')
 
-const data = {
-  "space_id": "6b00e95c-e9c2-438a-a01e-01dee680ef87",
-  "name": "horea-resource12-oct9",
-  "deployment": {
-    "id": "c88bf7b8-5f00-4a9a-be10-67b9e6f24781"
-  },
-  "decision_optimization": {
-    "input_data": [
-      {
-        "id": "customerDemand.csv",
-        "fields": ["Product", "Demand"],
-        "values": [
-          ["handSanitizer", 100],
-          ["mask", 120]
-        ]
-      },
-      {
-        "id": "plants.csv",
-        "fields": ["Plants", "Cost", "Capacity", "Product"],
-        "values": [
-          [1, 3, 40, "mask"],
-          [2, 2, 30, "mask"],
-          [3, 1, 30, "handSanitizer"],
-          [4, 3, 100, "handSanitizer"],
-          [5, 2, 60, "mask"],
-          [6, 1, 45, "mask"]
-        ]
-      }
-    ],
-    "output_data": [
-      {
-        "id": ".*\\.csv"
-      }
-    ]
-  }
-};
-
-
 require('dotenv').config();
 
 app.use(express.static('public'))
@@ -58,12 +20,20 @@ console.log(process.env.PORT)
 
 const url = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?space_id=6b00e95c-e9c2-438a-a01e-01dee680ef87&deployment_id=c88bf7b8-5f00-4a9a-be10-67b9e6f24781&version=2020-09-01&version=2020-09-01'
 const postURL = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?version=2020-09-01'
+let randomTag = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+const getURL = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?space_id=6b00e95c-e9c2-438a-a01e-01dee680ef87&tag.value=' + randomTag + '&state=completed&deployment_id=c88bf7b8-5f00-4a9a-be10-67b9e6f24781&version=2020-09-01'
+
+// const getURL = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?space_id=6b00e95c-e9c2-438a-a01e-01dee680ef87&state=completed&deployment_id=c88bf7b8-5f00-4a9a-be10-67b9e6f24781&version=2020-09-01'
+
+console.log(randomTag)
+let tagAr = [randomTag];
 
 app.post('/send', async function (req, res) {
 
   let reqBody = {};
   reqBody.space_id = process.env.SPACE_ID
   reqBody.name = process.env.NAME
+  reqBody.tags = tagAr
   reqBody.deployment = {};
   reqBody.deployment.id = process.env.DEPLOYMENT_ID
   reqBody.decision_optimization = {};
@@ -75,9 +45,6 @@ app.post('/send', async function (req, res) {
 
   console.log(req.fields)
   console.log(req.files)
-
-  console.log('data from the top of the file: ')
-  console.log(util.inspect(data, { showHidden: false, depth: 100 }))
 
   console.log('app post send')
   console.log('req.files')
@@ -131,14 +98,6 @@ app.post('/send', async function (req, res) {
 
 
   reqBody.decision_optimization.input_data.push(customerDemandsObj, plantsObj)
-  console.log('inputdata')
-  console.log(reqBody.decision_optimization.input_data)
-  console.log('after we for loop thru the files reqBody: ')
-  console.log(util.inspect(reqBody, { showHidden: false, depth: 100 }))
-  console.log('reqBody.decision_optimization.input_data')
-
-  console.log(reqBody.decision_optimization.input_data)
-  console.log(reqBody)
 
   let response = await axios.post(postURL, reqBody, 
     {
@@ -151,15 +110,18 @@ app.post('/send', async function (req, res) {
 })
 
 app.get('/decisionSolution', async function (req, res) {
-  await res.send('hello-word')
+
+  let response = await axios.get(getURL,
+    {
+      headers: {
+        'Authorization': process.env.TOKEN,
+        'Content-Type': 'application/json'
+    }
+  })
+  console.log(JSON.stringify(response.data));
+  await res.send(JSON.stringify(response.data))
 })
 
 
 app.listen(process.env.PORT, process.env.HOST);
 console.log(`Running on http://${process.env.HOST}:${process.env.PORT}`);
-
-  // json = json.replace(/(?:\r\n|\r|\n)/g, ',');
-  // console.log(json)
-
-  // let words = json.split('\n,| \r')
-// console.log(words)
