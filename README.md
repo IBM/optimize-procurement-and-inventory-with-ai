@@ -40,27 +40,19 @@ to predict future demand for specific products in the retail store. Michelle
 visualizes the demand, and sends the output to Joe to use this predicted 
 demand as input to his decision optimization model.
 
-## Create a machine learning model to optimize inventory based on demand
-Joe takes the predicted demand given by Michelle, and uses that as a 
-constraint into his decision optimization problem. First he uses the 
-model builder and NLU solution on IBM Public Cloud to build his model.
-Next, he uses CPLEX to identify the constraints, 
-namely the distribution centers, and the the max amount of inventory the store can carry, and he uses this 
-to build his solution.
-
-## Create a machine learning model to optimize distribution routes based on inventory 
+## Create a machine learning model to optimize warehouse selection based on cost
 Once Joe has built the solution to optimize inventory levels based on demand, the last 
-part of the solution will be to pick the optimal routes and distribution centers to 
-replenish inventory levels. Using geolocation and IBM's Decision Optimization engine,
-Joe is able to find the optimal route, which will not only save money for the corporation
-but also ensure that customers are happy. 
+part of the solution will be to pick the optimal warehouses to 
+replenish inventory levels. Using IBM's Decision Optimization engine,
+Joe is able to find the optimal combination of warehouses to select in order to maximize
+profit for his business.
 
 ## Create a web-application for the procurement manager to use
 To make his machine learning model easy to use, Joe quickly builds a web-app 
-that is invoking the inventory optimization and distribution route optimization 
-models that he has deployed. He is able to wrap his models in a UI such that 
-anyone can quickly get optimal results. Not only that, but as he trains the model 
-with new data, and he can quickly re-deploy once demand shifts again. 
+that takes customerDemand and warehouse plant data as input, and produces the optimal combination of 
+warehouses to select. Joe uses the Watson Machine Learning APIs to build a UI that anyone can use - 
+The app uses the decision optimization model created in the previous tutorial to help 
+managers select which warehouses to use to maximize profit while replenishing inventory levels.
 
 ## Conclusion
 In this case study, we've seen how a development team can help their procurement manager 
