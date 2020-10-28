@@ -23,10 +23,10 @@ form.addEventListener('submit', async (e) => {
 
   for (let i = 0; i < files.length; i++) {
     let file = files[i]
-  
+
     formData.append(i, file)
   }
-  
+
   var res = await fetch('http://localhost:8080/send', {
     method: 'POST',
     body: formData,
@@ -35,22 +35,45 @@ form.addEventListener('submit', async (e) => {
   let jsonBody = JSON.parse(body)
   console.log('jsonBody')
   console.log(jsonBody)
-  let inputData = jsonBody.entity.decision_optimization.input_data
-  console.log('inputData')
-  console.log(inputData)
-  let createdAt = jsonBody.metadata.created_at
-  console.log('createdAt')
-  console.log(createdAt)
-  // let jsonBody = JSON.parse(body)
-  // let parsedJSON = await res.json();
-  // console.log(body)
-  console.log(jsonBody.metadata)
-  
-  firstSpinner.hidden = true;
-  output.innerHTML += '<p id = "jobText" >Job created at: </p>' + '<span>' +  createdAt + '</span>';
-  output.innerHTML += '<br>'
-  output.innerHTML += '<p id = "inputDataText" >Input data from files: </p>' + JSON.stringify(inputData, undefined, 4);
-  solutionUpdate.hidden = false;
+  let inputData = jsonBody.entity.decision_optimization.input_data;
+
+  // for (var z = 0; z < inputData.length; z++) {
+
+  //   for (let  i = 0; i < values.length; i++) {
+      
+  //     for (j = 0; j < fields.length; j++) {
+
+  //       solution.innerHTML += '<span>' + '<b>' + fields[j] + ': </b>' + values[i][j] + '</span>'
+  //       solution.innerHTML += '<br>'
+  //     }
+
+  //     solution.innerHTML += '<br>'
+  //   }
+
+  // }
+console.log('inputData')
+console.log(inputData)
+let createdAt = jsonBody.metadata.created_at
+console.log('createdAt')
+console.log(createdAt)
+// let jsonBody = JSON.parse(body)
+// let parsedJSON = await res.json();
+// console.log(body)
+console.log(jsonBody.metadata)
+
+// for (let i = 0; i < values.length; i++) {
+//   for (j = 0; j < fields.length; j++) {
+//     solution.innerHTML += '<span>' + '<b>' + fields[j] + ': </b>' + values[i][j] + '</span>' 
+//     solution.innerHTML += '<br>'
+//   }
+//   solution.innerHTML += '<br>'
+// }
+
+firstSpinner.hidden = true;
+output.innerHTML += '<p id = "jobText" >Job created at: </p>' + '<span>' + createdAt + '</span>';
+output.innerHTML += '<br>'
+output.innerHTML += '<p id = "inputDataText" >Input data from files: </p>' + JSON.stringify(inputData, undefined, 4);
+solutionUpdate.hidden = false;
 
 })
 
@@ -62,26 +85,18 @@ solutionUpdate.addEventListener('click', async (e) => {
   var solBody = await resp.text()
   var body = JSON.parse(solBody)
   console.log(body.resources)
-  let outputData = body.resources[0].entity.decision_optimization.output_data[2];
   // let outputData = body.resources[0].entity.decision_optimization.output_data[2];
   let fields = body.resources[0].entity.decision_optimization.output_data[2].fields
   let values = body.resources[0].entity.decision_optimization.output_data[2].values
-  // let outputStr = '';
-  // for (let i = 0; i < values.length; i++) {
-  //   outputStr+=fields + values[i]
-  // }
+
   console.log(fields)
   secondSpinner.hidden = true;
   for (let i = 0; i < values.length; i++) {
-
     for (j = 0; j < fields.length; j++) {
-      solution.innerHTML += '<span>' + '<b>' + fields[j] + ': </b>' + values[i][j] + '</span>' 
+      solution.innerHTML += '<span>' + '<b>' + fields[j] + ': </b>' + values[i][j] + '</span>'
       solution.innerHTML += '<br>'
     }
     solution.innerHTML += '<br>'
-
   }
-
   console.log(solBody)
-
 })
