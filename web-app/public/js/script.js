@@ -47,7 +47,9 @@ form.addEventListener('submit', async (e) => {
   console.log(jsonBody.metadata)
   
   firstSpinner.hidden = true;
-  output.innerHTML = JSON.stringify(inputData, undefined, 4);
+  output.innerHTML += '<p id = "jobText" >Job created at: </p>' + '<span>' +  createdAt + '</span>';
+  output.innerHTML += '<br>'
+  output.innerHTML += '<p id = "inputDataText" >Input data from files: </p>' + JSON.stringify(inputData, undefined, 4);
   solutionUpdate.hidden = false;
 
 })
@@ -58,8 +60,28 @@ solutionUpdate.addEventListener('click', async (e) => {
   solution.hidden = false;
   var resp = await fetch('http://localhost:8080/decisionSolution')
   var solBody = await resp.text()
+  var body = JSON.parse(solBody)
+  console.log(body.resources)
+  let outputData = body.resources[0].entity.decision_optimization.output_data[2];
+  // let outputData = body.resources[0].entity.decision_optimization.output_data[2];
+  let fields = body.resources[0].entity.decision_optimization.output_data[2].fields
+  let values = body.resources[0].entity.decision_optimization.output_data[2].values
+  // let outputStr = '';
+  // for (let i = 0; i < values.length; i++) {
+  //   outputStr+=fields + values[i]
+  // }
+  console.log(fields)
   secondSpinner.hidden = true;
-  solution.innerHTML = solBody;
+  for (let i = 0; i < values.length; i++) {
+
+    for (j = 0; j < fields.length; j++) {
+      solution.innerHTML += '<span>' + '<b>' + fields[j] + ': </b>' + values[i][j] + '</span>' 
+      solution.innerHTML += '<br>'
+    }
+    solution.innerHTML += '<br>'
+
+  }
+
   console.log(solBody)
 
 })

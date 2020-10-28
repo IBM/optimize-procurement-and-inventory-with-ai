@@ -32,6 +32,15 @@ body {
   text-shadow: 2px 2px;
 
 }
+
+#jobText, #inputDataText {
+  display:inline-block; /* Moves the image 2px closer to the top of the page */
+  font-size: 14px;
+  font-weight: bold;
+}
+span {
+    display:inline-block; /* Moves the image 2px closer to the top of the page */
+}
 body {
   background-color: #d2deed;
 }
