@@ -32,9 +32,22 @@ form.addEventListener('submit', async (e) => {
     body: formData,
   })
   var body = await res.text()
-  console.log(body)
+  let jsonBody = JSON.parse(body)
+  console.log('jsonBody')
+  console.log(jsonBody)
+  let inputData = jsonBody.entity.decision_optimization.input_data
+  console.log('inputData')
+  console.log(inputData)
+  let createdAt = jsonBody.metadata.created_at
+  console.log('createdAt')
+  console.log(createdAt)
+  // let jsonBody = JSON.parse(body)
+  // let parsedJSON = await res.json();
+  // console.log(body)
+  console.log(jsonBody.metadata)
+  
   firstSpinner.hidden = true;
-  output.innerHTML = body;
+  output.innerHTML = JSON.stringify(inputData, undefined, 4);
   solutionUpdate.hidden = false;
 
 })

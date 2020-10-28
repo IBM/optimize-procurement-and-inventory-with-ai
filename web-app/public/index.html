@@ -7,17 +7,26 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
   <script src="https://d3js.org/d3.v4.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <div class="navbar" id="navbar">
+      <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+      <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+      <a href="https://github.com/IBM/predict-insurance-charges-with-ai"><i class="fa fa-info-circle"></i> About</a>
+    </div>
   
 <center>
-    <h2>Watson Machine Learning & Decision Optimization Sample App</h2>
+    <h2>Optimize Your Warehouse Selection</h2>
   <br>
 
   <img id="demoImg" src="images/demo.png" alt="Demo">
-
+  <h4>Upload your demand and available warehouses</h4>
 
   <form method="post" enctype="multipart/form-data">
-    <input type="file" multiple="multiple" id="customerDemand"  accept=".csv" name="files[]">
-    <input id="csvSubmit" type="submit">
+    <input id= "chooseFiles" type="file" multiple="multiple" id="customerDemand"  accept=".csv" name="files[]">
+    <br><br>
+    <input id="csvSubmit" type="submit" value="Optimize">
   </form>
 
 
