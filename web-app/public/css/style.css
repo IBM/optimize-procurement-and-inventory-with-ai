@@ -33,7 +33,7 @@ body {
 
 }
 
-#jobText, #inputDataText {
+#jobText, #inputDataText, #fileName1, #fileName2 {
   display:inline-block; /* Moves the image 2px closer to the top of the page */
   font-size: 14px;
   font-weight: bold;
