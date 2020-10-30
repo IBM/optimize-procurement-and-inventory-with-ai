@@ -18,8 +18,6 @@ app.use(fileupload());
 
 console.log(process.env.PORT)
 
-// const url = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?space_id=6b00e95c-e9c2-438a-a01e-01dee680ef87&deployment_id=c88bf7b8-5f00-4a9a-be10-67b9e6f24781&version=2020-09-01&version=2020-09-01'
-
 const postURL = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?version=2020-09-01'
 
 let randomTag = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
@@ -27,7 +25,8 @@ let randomTag = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
 const getURL = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?space_id=' + process.env.SPACE_ID + 
 '&tag.value=' + randomTag + '&state=completed&deployment_id=' + process.env.DEPLOYMENT_ID + '&version=2020-09-01'
 
-// const getURL = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?space_id=6b00e95c-e9c2-438a-a01e-01dee680ef87&state=completed&deployment_id=c88bf7b8-5f00-4a9a-be10-67b9e6f24781&version=2020-09-01'
+// const getURLIntermediate = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?space_id=' + process.env.SPACE_ID + 
+// '&tag.value=' + randomTag + '&state=completed&deployment_id=' + process.env.DEPLOYMENT_ID_INTERMEDIATE + '&version=2020-09-01'
 
 console.log(randomTag)
 let tagAr = [randomTag];
@@ -40,6 +39,7 @@ app.post('/send', async function (req, res) {
   reqBody.tags = tagAr
   reqBody.deployment = {};
   reqBody.deployment.id = process.env.DEPLOYMENT_ID
+  // reqBody.deployment.id = process.env.DEPLOYMENT_ID_INTERMEDIATE
   reqBody.decision_optimization = {};
   reqBody.decision_optimization.input_data = [];
   reqBody.decision_optimization.output_data = [];
@@ -99,6 +99,9 @@ app.post('/send', async function (req, res) {
 
   console.log('customerDemandsObj')
   console.log(customerDemandsObj)
+
+  console.log('plantsObj')
+  console.log(plantsObj)
 
 
   reqBody.decision_optimization.input_data.push(customerDemandsObj, plantsObj)

@@ -9,6 +9,7 @@ pre {
 
 body {
   font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
 }
 
 .loader {
@@ -57,6 +58,10 @@ body {
 .navbar {
   background-color: #333;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+    white-space: nowrap;
 }
 
 /* Style the links inside the navigation bar */
@@ -81,17 +86,6 @@ background-color: #4CAF50;
 color: white;
 }
 
-/* Right-aligned section inside the top navigation */
-.navbar-right {
-float: right;
-}
-
-/* input{
-  color: #4CAF50;
-  width: 20em;
-  height: 2em;
-} */
-
 #csvSubmit{
   /* color: #4CAF50; */
   width: 20em;
@@ -113,4 +107,11 @@ input[type=file] {
     color: #4CAF50;
     width: 24em;
     height:2em;
+}
+canvas {
+  display: inline-block;
+}
+#charts {
+  display: inline-block;
+
 }
