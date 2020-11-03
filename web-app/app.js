@@ -16,6 +16,7 @@ app.use(express.static('public'));
 
 //create tag to query for our solution in Watson Machine Learning easier
 let randomTag = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+let tagAr = [randomTag];
 
 const postURL = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?version=2020-09-01';
 
@@ -37,7 +38,7 @@ app.post('/send', async function (req, res) {
   var lines = json.split("\n");
   var lines2 = plantFile.split("\n");
 
-  var result, result2 = [];
+  var result = [], result2 = [];
 
   //set the first split as the headers
   var headersDemand = lines[0].split(",");
