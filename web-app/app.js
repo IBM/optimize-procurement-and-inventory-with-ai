@@ -4,32 +4,25 @@ const express = require('express')
 const app = express();
 const axios = require('axios');
 var bodyParser = require("body-parser");
-const fileupload = require('express-fileupload')
-
+const fileupload = require('express-fileupload');
 const defaultData = require('./data.js')
-
-console.log('defData: ')
-console.log(defaultData)
-
 require('dotenv').config();
-
-app.use(express.static('public'))
 
 //tells the application to use body-parser as middleware so it can handle post requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(fileupload());
+app.use(express.static('public'));
 
-const postURL = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?version=2020-09-01'
-
+//create tag to query for our solution in Watson Machine Learning easier
 let randomTag = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
 
+const postURL = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?version=2020-09-01';
+
 const getURL = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?space_id=' + process.env.SPACE_ID + 
-'&tag.value=' + randomTag + '&state=completed&deployment_id=' + process.env.DEPLOYMENT_ID + '&version=2020-09-01'
+'&tag.value=' + randomTag + '&state=completed&deployment_id=' + process.env.DEPLOYMENT_ID + '&version=2020-09-01';
 
-console.log(randomTag)
-let tagAr = [randomTag];
-
+//create a Watson Machine Learning job to solve a decision optimization problem using input files
 app.post('/send', async function (req, res) {
 
   //parse the inputted files from the UI
@@ -65,19 +58,20 @@ app.post('/send', async function (req, res) {
     id: req.files[1].name,
     fields: headersPlants,
     values: result2
-  }
+  };
 
   //set plants object
   let customerDemandsObj = {
     id: req.files[0].name,
     fields: headersDemand,
     values: result
-  }
+  };
 
   //add tag before we create a new job to solve a Decision optimization problem
-  defaultData.requestBody.tags = tagAr
+  defaultData.requestBody.tags = tagAr;
 
-  defaultData.requestBody.decision_optimization.input_data.push(customerDemandsObj, plantsObj)
+  //push the parsed data from the input files as part of our request body
+  defaultData.requestBody.decision_optimization.input_data.push(customerDemandsObj, plantsObj);
 
   let response = await axios.post(postURL, defaultData.requestBody, 
     {
@@ -85,14 +79,15 @@ app.post('/send', async function (req, res) {
         'Authorization': process.env.TOKEN,
         'Content-Type': 'application/json'
     }
-  })
-  await res.send(JSON.stringify(response.data))
-})
+  });
+  await res.send(JSON.stringify(response.data));
+});
 
+//create a Watson Machine Learning job to solve a decision optimization problem using default data from the ./data.js file
 app.post('/sendDefault', async function (req, res) {
 
   //add tag for default scenario
-  defaultData.data.tags = tagAr
+  defaultData.data.tags = tagAr;
 
   let response = await axios.post(postURL, defaultData.data, 
     {
@@ -101,9 +96,10 @@ app.post('/sendDefault', async function (req, res) {
         'Content-Type': 'application/json'
     }
   })
-  await res.send(JSON.stringify(response.data))
-})
+  await res.send(JSON.stringify(response.data));
+});
 
+//get Watson Machine Learning solution by querying for our job, with the tag we created earlier
 app.get('/decisionSolution', async function (req, res) {
 
   let response = await axios.get(getURL,
@@ -114,9 +110,8 @@ app.get('/decisionSolution', async function (req, res) {
     }
   })
   console.log(JSON.stringify(response.data));
-  await res.send(JSON.stringify(response.data))
-})
-
+  await res.send(JSON.stringify(response.data));
+});
 
 app.listen(process.env.PORT, process.env.HOST);
 console.log(`Running on http://${process.env.HOST}:${process.env.PORT}`);
