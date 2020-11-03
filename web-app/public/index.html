@@ -24,13 +24,21 @@
   
 <center>
     <h2>Optimize Your Plant Selection based on Demand and Capacity</h2>
-    <h3>This model has been trained to take products, demand, capacity, cost, and plant id as input</h3>
-    <h3>This model is trained to minimize cost while maximizing items to be produced such that demand is met</h3>
+    <h3>Model takes products, demand, capacity, and cost as an input</h3>
+    <h3>Goal is to minimize cost and identify plants that can meet the products forecasted demand</h3>
   <br>
     <div class= "canvas-container">
-        <canvas id="myChart" width="600" height="300"></canvas>
+        <canvas id="myChart" width="700" height="350"></canvas>
 
-  <h4>Upload demand and plant details as two separate csv files</h4>
+
+
+  <h4 id= "byodText">To upload your own data, click below</h4>
+  <button id="byod" type="button">Upload data</button>
+  <br><br>
+
+  <h4 id= "defaultScenario">To run the default scenario click below</h4>
+  <button id="runScenario" type="button">Run Scenario</button>
+  <br><br>
 
   <form method="post" enctype="multipart/form-data">
     <input id= "chooseFiles" type="file" multiple="multiple" id="customerDemand"  accept=".csv" name="files[]">
@@ -55,4 +63,5 @@
 
 
 <script src="js/script.js"></script>
+
 </html>

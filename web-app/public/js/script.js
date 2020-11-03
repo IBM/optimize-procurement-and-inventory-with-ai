@@ -6,12 +6,81 @@ const doSolText = document.getElementById('doSolText')
 const solution = document.getElementById('solution')
 const firstSpinner = document.getElementById('firstSpinner')
 const secondSpinner = document.getElementById('secondSpinner')
+const byod = document.getElementById('byod')
+const byodText = document.getElementById('byodText')
+const defaultScenario = document.getElementById('defaultScenario')
+const runScenarioBtn = document.getElementById('runScenario')
+let defaultFlag = false;
 
 doOutputText.hidden = true;
 doSolText.hidden = true;
 solutionUpdate.hidden = true;
 firstSpinner.hidden = true;
 secondSpinner.hidden = true;
+form.hidden = true;
+
+const defaultData = {
+  "space_id": "6b00e95c-e9c2-438a-a01e-01dee680ef87",
+  "name": "horea-resource12-oct9",
+  "deployment": {
+      "id": "c88bf7b8-5f00-4a9a-be10-67b9e6f24781"
+  },
+  "decision_optimization": {
+    "input_data": [
+      {
+        "id":"customerDemand.csv",
+        "fields" : ["Product","Demand"],
+        "values" : [
+          ["handSanitizer", 100],
+          ["mask", 120]
+        ]
+      },
+      {
+        "id":"plants.csv",
+        "fields" : ["Plants","Cost","Capacity","Product"],
+        "values" : [
+          [1,3,40,"mask"],
+          [2,2,30,"mask"],
+          [3,1,30,"handSanitizer"],
+          [4,3,100,"handSanitizer"],
+          [5,2,60,"mask"],
+          [6,1,45,"mask"]
+        ]
+      }
+    ],
+    "output_data": [
+      {
+        "id":".*\\.csv"
+      }
+  ]
+}
+};
+
+async function createDefaultJob() {
+  firstSpinner.hidden = false;
+  outputText.hidden = false;
+
+  console.log('defaultData')
+  console.log(defaultData)
+
+  var res = await fetch('http://localhost:8080/sendDefault', {
+    method: 'POST',
+    body: '',
+  })
+  var body = await res.text()
+  let jsonBody = JSON.parse(body)
+  console.log('jsonBody')
+  console.log(jsonBody)
+
+  let createdAt = jsonBody.metadata.created_at
+
+
+  firstSpinner.hidden = true;
+  output.innerHTML += '<p id = "jobText" >Job created at: </p>' + '<span>' + createdAt + '</span>';
+
+  solutionUpdate.hidden = false;
+
+}
 
 form.addEventListener('submit', async (e) => {
   firstSpinner.hidden = false;
@@ -37,47 +106,19 @@ form.addEventListener('submit', async (e) => {
   console.log(jsonBody)
   let firstFile = jsonBody.entity.decision_optimization.input_data[0];
   let secondFile = jsonBody.entity.decision_optimization.input_data[1];
-  console.log('firstFile')
-  console.log(firstFile)
-  console.log('secondFile')
-  console.log(secondFile)
 
-let createdAt = jsonBody.metadata.created_at
+  let createdAt = jsonBody.metadata.created_at
 
 
-firstSpinner.hidden = true;
-output.innerHTML += '<p id = "jobText" >Job created at: </p>' + '<span>' + createdAt + '</span>';
-// output.innerHTML += '<br>'
-// // output.innerHTML += '<p id = "inputDataText" >Input data from files: </p>' + JSON.stringify(inputData, undefined, 4);
-// output.innerHTML += '<b><p id = "fileName1" > Filename: </p></b>'  + '<span>' + firstFile.id + '</span><br>' 
+  firstSpinner.hidden = true;
+  output.innerHTML += '<p id = "jobText" >Job created at: </p>' + '<span>' + createdAt + '</span>';
 
-// output.innerHTML += '<p id = "inputDataText" >Input data from ' + firstFile.id+ ': </p><br>'
-
-// for (let i = 0; i < firstFile.values.length; i++) {
-//   for (j = 0; j < firstFile.fields.length; j++) {
-//     output.innerHTML += '<span>' + '<b>' + firstFile.fields[j] + ': </b>' + firstFile.values[i][j] + '</span>' 
-//     output.innerHTML += '<br>'
-//   }
-//   output.innerHTML += '<br>'
-// }
-
-
-// output.innerHTML += '<b><p id = "fileName2" > Filename: </p></b>'  + '<span>' + secondFile.id + '</span><br>' 
-
-// output.innerHTML += '<p id = "inputDataText" >Input data from ' + secondFile.id + ': </p><br>'
-
-// for (let i = 0; i < secondFile.values.length; i++) {
-//   for (j = 0; j < secondFile.fields.length; j++) {
-//     output.innerHTML += '<span>' + '<b>' + secondFile.fields[j] + ': </b>' + secondFile.values[i][j] + '</span>' 
-//     output.innerHTML += '<br>'
-//   }
-//   output.innerHTML += '<br>'
-// }
-solutionUpdate.hidden = false;
+  solutionUpdate.hidden = false;
 
 })
 
-solutionUpdate.addEventListener('click', async (e) => {
+async function querySolution(data) {
+  console.log(data)
   secondSpinner.hidden = false;
   doSolText.hidden = false;
   solution.hidden = false;
@@ -95,135 +136,158 @@ solutionUpdate.addEventListener('click', async (e) => {
 
   console.log(fields)
   secondSpinner.hidden = true;
+
+  let firstTime = new Date().getTime()
+  console.log(firstTime)
+
   for (let i = 0; i < values.length; i++) {
     for (j = 0; j < fields.length; j++) {
-      console.log('fields j')
-      console.log(fields[j])
       if (fields[j] == 'plants allocation decision') {
         barChartAr.push(values[i][j])
       }
       if (fields[j] == 'plants') {
         barChartAxis.push('Plant ' + values[i][j])
       }
-      if (fields[j] == 'plants Product'){
+      if (fields[j] == 'plants Product') {
         if (values[i][j] == 'mask') {
+          //push red
           barChartColor.push('rgba(255, 99, 132, 0.2)')
-          
         } else {
-          barChartColor.push('rgba(54, 162, 235, 0.2')
+          //push blue
+          barChartColor.push('rgba(54, 162, 235, 0.2)')
         }
-      } 
-      // solution.innerHTML += '<span>' + '<b>' + fields[j] + ': </b>' + values[i][j] + '</span>'
-      // solution.innerHTML += '<br>'
+      }
     }
-    // solution.innerHTML += '<br>'
   }
-  console.log('barChartColor')
-  console.log(barChartColor)
+
+  let secondTime = new Date().getTime()
+  console.log(secondTime)
+
+  console.log('secondTime-firstTime in milliseconds' )
+  console.log(secondTime-firstTime)
 
   var ctx2 = document.getElementById('myChartSolution').getContext('2d');
-  console.log('hello')
   var myChart = new Chart(ctx2, {
     type: 'bar',
     data: {
-        labels: barChartAxis,
-        datasets: [{
-            label: 'Plants Solution - Order the following amount from each plant',
-            data: barChartAr,
-            backgroundColor: barChartColor,
-            borderWidth: 1
-        }]
+      labels: barChartAxis,
+      datasets: [{
+        data: barChartAr,
+        backgroundColor: barChartColor,
+        borderWidth: 1
+      }]
     },
     options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                },
-                scaleLabel: {
-                  display: true,
-                  labelString: 'Amount to Order'
-                },
-            }],
-            xAxes: [{
-              ticks: {
-                  beginAtZero: true
-              },
-              scaleLabel: {
-                display: true,
-                labelString: 'Plant Number'
-              },
-          }]
-        },
-        legend: {
-          display: true,
-          labels: {
-              fontColor: 'rgb(255, 99, 132)'
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
           },
-          title: {
-            text: "blue is hand sanitizer, red is masks"
-          }
-        },
-        responsive: false
+          scaleLabel: {
+            display: true,
+            labelString: 'Amount to Order'
+          },
+        }],
+        xAxes: [{
+          ticks: {
+            beginAtZero: true
+          },
+          scaleLabel: {
+            display: true,
+            labelString: 'Plant Number'
+          },
+        }]
+      },
+      legend: {
+        display: false
+      },
+      title: {
+        display: true,
+        text: "Quantity of Products to order from each plant - Red: Mask, Blue: Hand Sanitizer"
+      },
+      responsive: false
     }
-});
+  });
+}
 
-  console.log('bar chart ar')
-  console.log(barChartAr)
-  console.log('bar chart axis')
-  console.log(barChartAxis)
-  console.log(solBody)
+solutionUpdate.addEventListener('click', async (e) => {
+  querySolution(e)
 })
 
 var ctx = document.getElementById('myChart').getContext('2d');
 console.log('hello')
 var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Masks', 'Hand Sanitizer'],
-        datasets: [{
-            label: 'Predicted Demand for Masks and Hand Sanitizer for Jan 2021',
-            data: [120, 100],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
+  type: 'bar',
+  data: {
+    labels: [''],
+    datasets: [{
+      label: 'Masks',
+      data: [120],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+      ],
+      borderWidth: 1
     },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                },
-                scaleLabel: {
-                  display: true,
-                  labelString: 'Demand'
-                },
-            }],
-            xAxes: [{
-              ticks: {
-                  beginAtZero: true
-              },
-              scaleLabel: {
-                display: true,
-                labelString: 'Product'
-              },
-          }]
+    {
+      label: 'Hand Sanitizer',
+      data: [100],
+      backgroundColor: [
+        'rgba(54, 162, 235, 0.2)',
+      ],
+      borderColor: [
+        'rgba(54, 162, 235, 1)',
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
         },
-        responsive: false
-    }
+        scaleLabel: {
+          display: true,
+          labelString: 'Demand'
+        },
+      }],
+      xAxes: [{
+        ticks: {
+          beginAtZero: true
+        },
+        scaleLabel: {
+          display: true,
+          labelString: 'Product'
+        },
+      }]
+    },
+    title: {
+      display: true,
+      text: "Predicted Product Demand, Jan 20201"
+    },
+    responsive: false
+  }
+});
+
+byod.addEventListener('click', async (e) => {
+
+  form.hidden = false;
+  byod.hidden = true;
+  byodText.hidden = true;
+  defaultScenario.hidden = true;
+  runScenarioBtn.hidden = true;
+});
+
+runScenarioBtn.addEventListener('click', async (e) => {
+  runScenarioBtn.hidden = true;
+  defaultScenario.hidden = true;
+  byod.hidden = true;
+  byodText.hidden = true;
+  defaultFlag = true;
+  await createDefaultJob();
+
+
 });
