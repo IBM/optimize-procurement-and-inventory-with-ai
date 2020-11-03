@@ -19,49 +19,10 @@ firstSpinner.hidden = true;
 secondSpinner.hidden = true;
 form.hidden = true;
 
-const defaultData = {
-  "space_id": "6b00e95c-e9c2-438a-a01e-01dee680ef87",
-  "name": "horea-resource12-oct9",
-  "deployment": {
-      "id": "c88bf7b8-5f00-4a9a-be10-67b9e6f24781"
-  },
-  "decision_optimization": {
-    "input_data": [
-      {
-        "id":"customerDemand.csv",
-        "fields" : ["Product","Demand"],
-        "values" : [
-          ["handSanitizer", 100],
-          ["mask", 120]
-        ]
-      },
-      {
-        "id":"plants.csv",
-        "fields" : ["Plants","Cost","Capacity","Product"],
-        "values" : [
-          [1,3,40,"mask"],
-          [2,2,30,"mask"],
-          [3,1,30,"handSanitizer"],
-          [4,3,100,"handSanitizer"],
-          [5,2,60,"mask"],
-          [6,1,45,"mask"]
-        ]
-      }
-    ],
-    "output_data": [
-      {
-        "id":".*\\.csv"
-      }
-  ]
-}
-};
-
+//create default job, uses default input data
 async function createDefaultJob() {
   firstSpinner.hidden = false;
   outputText.hidden = false;
-
-  console.log('defaultData')
-  console.log(defaultData)
 
   var res = await fetch('http://localhost:8080/sendDefault', {
     method: 'POST',
@@ -69,19 +30,17 @@ async function createDefaultJob() {
   })
   var body = await res.text()
   let jsonBody = JSON.parse(body)
-  console.log('jsonBody')
-  console.log(jsonBody)
 
+  //parse the output from Watson Machine Learning to grab the created at time
   let createdAt = jsonBody.metadata.created_at
-
-
   firstSpinner.hidden = true;
+
+  //set the HTML for the job creation time
   output.innerHTML += '<p id = "jobText" >Job created at: </p>' + '<span>' + createdAt + '</span>';
-
   solutionUpdate.hidden = false;
-
 }
 
+//function to create a deployment job by sending the inputted files to the Express back end 
 form.addEventListener('submit', async (e) => {
   firstSpinner.hidden = false;
   outputText.hidden = false;
@@ -96,19 +55,15 @@ form.addEventListener('submit', async (e) => {
     formData.append(i, file)
   }
 
+  //send form data to our Express back end to make the API call to Watson Machine Learning to create a job 
   var res = await fetch('http://localhost:8080/send', {
     method: 'POST',
     body: formData,
   })
   var body = await res.text()
   let jsonBody = JSON.parse(body)
-  console.log('jsonBody')
-  console.log(jsonBody)
-  let firstFile = jsonBody.entity.decision_optimization.input_data[0];
-  let secondFile = jsonBody.entity.decision_optimization.input_data[1];
 
   let createdAt = jsonBody.metadata.created_at
-
 
   firstSpinner.hidden = true;
   output.innerHTML += '<p id = "jobText" >Job created at: </p>' + '<span>' + createdAt + '</span>';
@@ -163,8 +118,8 @@ async function querySolution(data) {
   let secondTime = new Date().getTime()
   console.log(secondTime)
 
-  console.log('secondTime-firstTime in milliseconds' )
-  console.log(secondTime-firstTime)
+  console.log('secondTime-firstTime in milliseconds')
+  console.log(secondTime - firstTime)
 
   var ctx2 = document.getElementById('myChartSolution').getContext('2d');
   var myChart = new Chart(ctx2, {
@@ -272,8 +227,8 @@ var myChart = new Chart(ctx, {
   }
 });
 
+//click on the bring your own data button
 byod.addEventListener('click', async (e) => {
-
   form.hidden = false;
   byod.hidden = true;
   byodText.hidden = true;
@@ -281,6 +236,7 @@ byod.addEventListener('click', async (e) => {
   runScenarioBtn.hidden = true;
 });
 
+//click on the run default scenario button
 runScenarioBtn.addEventListener('click', async (e) => {
   runScenarioBtn.hidden = true;
   defaultScenario.hidden = true;
@@ -288,6 +244,4 @@ runScenarioBtn.addEventListener('click', async (e) => {
   byodText.hidden = true;
   defaultFlag = true;
   await createDefaultJob();
-
-
 });

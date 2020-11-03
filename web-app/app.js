@@ -20,8 +20,8 @@ let tagAr = [randomTag];
 
 const postURL = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?version=2020-09-01';
 
-const getURL = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?space_id=' + process.env.SPACE_ID + 
-'&tag.value=' + randomTag + '&state=completed&deployment_id=' + process.env.DEPLOYMENT_ID + '&version=2020-09-01';
+const getURL = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?space_id=' + process.env.SPACE_ID +
+  '&tag.value=' + randomTag + '&state=completed&deployment_id=' + process.env.DEPLOYMENT_ID + '&version=2020-09-01';
 
 //create a Watson Machine Learning job to solve a decision optimization problem using input files
 app.post('/send', async function (req, res) {
@@ -74,13 +74,13 @@ app.post('/send', async function (req, res) {
   //push the parsed data from the input files as part of our request body
   defaultData.requestBody.decision_optimization.input_data.push(customerDemandsObj, plantsObj);
 
-  let response = await axios.post(postURL, defaultData.requestBody, 
+  let response = await axios.post(postURL, defaultData.requestBody,
     {
       headers: {
         'Authorization': process.env.TOKEN,
         'Content-Type': 'application/json'
-    }
-  });
+      }
+    });
   await res.send(JSON.stringify(response.data));
 });
 
@@ -90,13 +90,13 @@ app.post('/sendDefault', async function (req, res) {
   //add tag for default scenario
   defaultData.data.tags = tagAr;
 
-  let response = await axios.post(postURL, defaultData.data, 
+  let response = await axios.post(postURL, defaultData.data,
     {
       headers: {
         'Authorization': process.env.TOKEN,
         'Content-Type': 'application/json'
-    }
-  })
+      }
+    })
   await res.send(JSON.stringify(response.data));
 });
 
@@ -108,8 +108,8 @@ app.get('/decisionSolution', async function (req, res) {
       headers: {
         'Authorization': process.env.TOKEN,
         'Content-Type': 'application/json'
-    }
-  })
+      }
+    })
   console.log(JSON.stringify(response.data));
   await res.send(JSON.stringify(response.data));
 });
