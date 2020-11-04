@@ -39,7 +39,7 @@ to the decision optimization problem, along with cost and capacity of the plants
 that produce the items that he needs to replenish. Using IBM's Decision Optimization engine,
 Joe is able to find the optimal combination of warehouses to select in order to minimize 
 procurement cost while still replenishing inventory as suggested by the estimated demand. 
-Use the [Create a decision optimization model to optimize plant selection based on cost and capacity](tutorials/decision-optimization-tutorial/README.md) tutorial to see a step-by-step approach 
+Use the [Optimize plant selection based on cost and capacity with Decision Optimization](tutorials/decision-optimization-tutorial/README.md) tutorial to see a step-by-step approach 
 of building a decision optimization model using UI-based modeling assistant.
 
 ## Create a web-application for the procurement manager to use
@@ -47,7 +47,7 @@ To make his machine learning model easy to use, Joe deploys his decision optimiz
 model created from the previous step, and accesses it via API. He builds a  
 web-application that calls the deployed model via API in order to give the store manager
 the optimal combination of plants and the number of items to order from each plant. The 
-application displays the results using bar charts. Use the [Create a web-application to prescribe an optimal procurement strategy](web-app/README.md) to see how to 
+application displays the results using bar charts. Use the [Create a web-application to optimize plant selection based on cost and capacity](web-app/README.md) to see how to 
 build a web-application that accesses a deployed decision optimization model via API 
 and displays the results as a bar chart for the manager to use. 
 

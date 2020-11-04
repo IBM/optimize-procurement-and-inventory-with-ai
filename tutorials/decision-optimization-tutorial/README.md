@@ -1,4 +1,4 @@
-# Use Decision Optimization to minimize the cost of distribution 
+# Optimize plant selection based on cost and capacity with Decision Optimization  
  This hands-on lab is created around the persona of a store manager. The manager has information about the demand, and wants to ensure that inventory is optimized by minimizing the cost of distribution. There are many distribution plants to pick from, each with their own capacity and their own cost. Our goal is to minimize the total cost, while still ensuring we meet all of the demand.
 
 In the previous tutorial we used SPSS Modeler to build a model to predict demand. As you can see below, we will use the demand as input, 

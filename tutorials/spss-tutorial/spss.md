@@ -1,4 +1,4 @@
-# Use SPSS Modeler to predict demand for retail
+# Predict future product demand using SPSS Modeler
 
 As mentioned in our previous article, our goal is to build an intelligent inventory and distribution strategy using AI. In this part of the 
 solution, we will work on predicting future demand of our products to help us determine our optimal inventory level using SPSS Modeler for Watson Studio on IBM Cloud. SPSS Modeler is a data mining and analytics software
