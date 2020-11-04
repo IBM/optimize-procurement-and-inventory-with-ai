@@ -31,7 +31,6 @@ body {
   position:relative;
   top: -25px; /* Moves the image 2px closer to the top of the page */
   text-shadow: 2px 2px;
-
 }
 
 #jobText, #inputDataText, #fileName1, #fileName2 {
@@ -39,9 +38,11 @@ body {
   font-size: 14px;
   font-weight: bold;
 }
+
 span {
     display:inline-block; /* Moves the image 2px closer to the top of the page */
 }
+
 body {
   background-color: #d2deed;
 }
@@ -61,56 +62,54 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 /* Style the links inside the navigation bar */
 .navbar a {
-float: left;
-color: #f2f2f2;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
-font-size: 17px;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
 /* Change the color of links on hover */
 .navbar a:hover {
-background-color: #ddd;
-color: black;
+  background-color: #ddd;
+  color: black;
 }
 
 /* Add a color to the active/current link */
 .navbar a.active {
-background-color: #4CAF50;
-color: white;
+  background-color: #4CAF50;
+  color: white;
 }
 
 #csvSubmit{
-  /* color: #4CAF50; */
   width: 20em;
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 input[type=file] {
-    position: relative;
-    text-align: right;
-    z-index: 2;
-    color: #4CAF50;
-    width: 24em;
-    height:2em;
+  position: relative;
+  text-align: right;
+  z-index: 2;
+  color: #4CAF50;
+  width: 24em;
+  height:2em;
 }
 canvas {
   display: inline-block;
 }
 #charts {
   display: inline-block;
-
 }
