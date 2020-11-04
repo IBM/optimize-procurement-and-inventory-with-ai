@@ -1,4 +1,4 @@
-# Develop an intelligent inventory and distribution strategy using AI 
+# Develop an intelligent inventory and procurement strategy using AI 
 
 One of the most important parts of being a retail store today, going against the likes of Amazon, Etsy, and 
 other online stores is optimizing inventory. If you have too much inventory, you're 
