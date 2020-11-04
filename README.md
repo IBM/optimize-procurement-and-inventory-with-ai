@@ -27,34 +27,31 @@ We use various services that are available within IBM Cloud Pak for Data to anal
 You can install IBM Cloud Pak for Data through a tile in the IBM Cloud catalog, and the Install Cloud Pak for Data from the IBM Cloud catalog tutorial provides detailed steps. -->
 
 ## Predict future demand using SPSS Modeler 
-
 Michelle, the data analyst takes on the task to build a machine learning model using SPSS Modeler on IBM Cloud. After she builds a model, she uses the model
 to predict future demand for specific products in the retail store. Michelle 
 visualizes the demand, and sends the output to Joe to use this predicted 
 demand as input to his decision optimization model.
 
 ## Create a machine learning model to optimize plant selection based on cost
-Once Joe has built the solution to optimize inventory levels based on demand, the last 
-part of the solution will be to pick the optimal warehouses to 
-replenish inventory levels. Using IBM's Decision Optimization engine,
-Joe is able to find the optimal combination of warehouses to select in order to maximize
-profit for his business.
+Once Joe receives the predicted demand from Michelle, he uses that as an input
+to the decision optimization problem, along with cost and capacity of the plants 
+that produce the items that he needs to replenish. Using IBM's Decision Optimization engine,
+Joe is able to find the optimal combination of warehouses to select in order to minimize 
+procurement cost while still replenishing inventory as suggested by the estimated demand.
 
 ## Create a web-application for the procurement manager to use
-To make his machine learning model easy to use, Joe quickly builds a web-app 
-that takes customerDemand and warehouse plant data as input, and produces the optimal combination of 
-warehouses to select. Joe uses the Watson Machine Learning APIs to build a UI that anyone can use - 
-The app uses the decision optimization model created in the previous tutorial to help 
-managers select which warehouses to use to maximize profit while replenishing inventory levels.
+To make his machine learning model easy to use, Joe deploys his decision optimization
+model created from the previous step, and accesses it via API. He builds a  
+web-application that calls the deployed model via API in order to give the store manager
+the optimal combination of plants and the number of items to order from each plant. The 
+application displays the results using bar charts. 
 
 ## Conclusion
 In this case study, we've seen how a development team can help their procurement manager 
-by building machine learning models to predict optimal inventory levels based on past demand, 
-and optimal routes for their distribution network of suppliers. All in all, the manager 
+by building machine learning models to predict future demand, and an optimal procurement
+strategy. All in all, the manager 
 is able to make data driven decision in seconds, by the use of a web-app that is 
 enabled by machine learning models. The manager is confident he is making the best decision
 he can with the data at his disposal, and his company is able to serve its customers well, and 
 increase profits. As demand changes, new data is added to the machine learning model, and the 
-model is re-trained to ensure accuracy. With these new tools and techniques, our retail 
-organization is able to go up against e-commerce based companies knowing they are optimizing 
-their decisions with the power of data. 
+model is re-trained to ensure accuracy. 
