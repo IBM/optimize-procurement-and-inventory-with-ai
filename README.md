@@ -5,25 +5,17 @@ other online stores is optimizing inventory. If you have too much inventory, you
 losing money on the items that you have not sold. If you have too little, and customers expect you to have 
 a certain item, the customer will lose their trust and go elsewhere to purchase that same item. Finding the 
 perfect balance by predicting demand is ultimately an optimization problem, one fit for machine learning.
-Not only that, but as global supply chains are disrupted, a procurement manager must pick the optimal 
-routes to deliver goods on time to the retail store. With thousands of different possible combinations, 
-each with their own advantages, it would take days or even weeks for a manager to pick the optimal 
-distribution route if they were to check each possible combination by hand. Again, this solution can 
-be solved with machine learning.
 
 Imagine that a large demand spike in cleaning supplies causes our inventory to be exhausted 
 days before new shipments arrive. Machines can learn from this. Using this 
 data to train our machine learning model, we can predict demand for certain items more accurately in the 
-future, and ensure that our customers will be able to purchase what they want. Lastly, as a procurement
-manager of multiple stores, we want to ensure that our supply chain is as efficient as possible, taking 
-the most direct route, so that inventory is filled quickly, in a cost-effective manner. 
+future, and ensure that our customers will be able to purchase what they want.
 
 Using this scenario as our case study, we will take the view of the procurement manager. The procurement 
 manager is notified by Lauren, the retail store manager whose inventory for certain cleaning supplies 
 has been exhausted days ahead of schedule. Bob, the procurement manager, gives the task to the development 
 team to take the inventory demand data, denoted as `Actuals` in the data set, as a way to train a machine learning model. The model will 
-predict demand in the future which will help optimize demand and find the optimal routes for the supply to reach
-the retail stores. In the next few paragraphs, we will explain how the development team will use machine 
+predict demand in the future which will help optimize inventory and procurement. In the next few paragraphs, we will explain how the development team will use machine 
 learning tools and techniques to solve this problem.
 
 ![flow-diagrm](tutorials/images/flow-diagram.png)
@@ -40,7 +32,7 @@ to predict future demand for specific products in the retail store. Michelle
 visualizes the demand, and sends the output to Joe to use this predicted 
 demand as input to his decision optimization model.
 
-## Create a machine learning model to optimize warehouse selection based on cost
+## Create a machine learning model to optimize plant selection based on cost
 Once Joe has built the solution to optimize inventory levels based on demand, the last 
 part of the solution will be to pick the optimal warehouses to 
 replenish inventory levels. Using IBM's Decision Optimization engine,
