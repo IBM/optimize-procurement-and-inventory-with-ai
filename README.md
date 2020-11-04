@@ -3,28 +3,28 @@
 One of the most important parts of being a retail store today, going against the likes of Amazon, Etsy, and 
 other online stores is optimizing inventory. If you have too much inventory, you're 
 losing money on the items that you have not sold. Finding the 
-perfect balance by predicting demand is ultimately an optimization problem, one fit for machine learning.
+perfect balance by predicting demand is one fit for machine learning.
 
 Imagine that a large demand spike in cleaning supplies causes our inventory to be exhausted 
 days before new shipments arrive. Machines can learn from this. Using this 
 data to train our machine learning model, we can predict demand for certain items more accurately in the 
 future, and ensure that our customers will be able to purchase what they want.
 
-Using this scenario as our case study, we will take the view of the procurement manager. The procurement 
+Using this scenario as the basis for our case study, we will take the view of the procurement manager. The procurement 
 manager, Bob is notified by Lauren, the retail store manager whose inventory for certain cleaning supplies 
-has been exhausted days ahead of schedule. Bob, gives the task to the development 
+has been exhausted days ahead of schedule. Bob gives the task to the development 
 team to take the past demand data and train a machine learning model to predict future demand. The model will 
-predict demand in order to optimize inventory. Once we've predicted demand, we will use that demand as an input to
+predict demand in order to optimize inventory and minimize procurement cost. Once we've predicted demand, we will use that demand as an input to
 our optimization problem. Our optimization problem will solve the problem of which plant to order items from in 
 order to minimize cost. In the next few paragraphs, we will explain how the development team will use machine 
 learning tools and techniques to solve these problems.
 
 ![flow-diagrm](tutorials/images/flow-diagram.png)
 
-## Set up IBM Cloud Pak for Data on OpenShift
+<!-- ## Set up IBM Cloud Pak for Data on OpenShift
 We use various services that are available within IBM Cloud Pak for Data to analyze data, build, deploy, and monitor the machine learning model. IBM Cloud Pak for Data is a data and AI platform that runs on a RedHat OpenShift Kubernetes Container.
 
-You can install IBM Cloud Pak for Data through a tile in the IBM Cloud catalog, and the Install Cloud Pak for Data from the IBM Cloud catalog tutorial provides detailed steps.
+You can install IBM Cloud Pak for Data through a tile in the IBM Cloud catalog, and the Install Cloud Pak for Data from the IBM Cloud catalog tutorial provides detailed steps. -->
 
 ## Predict future demand using SPSS Modeler 
 
