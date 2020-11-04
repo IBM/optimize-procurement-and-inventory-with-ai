@@ -47,7 +47,7 @@ To make his machine learning model easy to use, Joe deploys his decision optimiz
 model created from the previous step, and accesses it via API. He builds a  
 web-application that calls the deployed model via API in order to give the store manager
 the optimal combination of plants and the number of items to order from each plant. The 
-application displays the results using bar charts. Use the [Create a web-application to prescribe an optimal procurement strategy](tutorials/decision-optimization/README.md) to see how to 
+application displays the results using bar charts. Use the [Create a web-application to prescribe an optimal procurement strategy](tutorials/decision-optimization-tutorial/README.md) to see how to 
 build a web-application that accesses a deployed decision optimization model via API 
 and displays the results as a bar chart for the manager to use. 
 
