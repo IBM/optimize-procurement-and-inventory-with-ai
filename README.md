@@ -30,7 +30,8 @@ You can install IBM Cloud Pak for Data through a tile in the IBM Cloud catalog, 
 Michelle, the data analyst takes on the task to build a machine learning model using SPSS Modeler on IBM Cloud. After she builds a model, she uses the model
 to predict future demand for specific products in the retail store. Michelle 
 visualizes the demand, and sends the output to Joe to use this predicted 
-demand as input to his decision optimization model.
+demand as input to his decision optimization model. Use the [predict future product demand using SPSS Modeler](tutorials/spss-tutorial/spss.md) tutorial to see a step-by-step approach of building a 
+machine learning model using a flow-based editor.
 
 ## Create a machine learning model to optimize plant selection based on cost
 Once Joe receives the predicted demand from Michelle, he uses that as an input
