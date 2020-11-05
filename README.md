@@ -30,7 +30,9 @@ You can install IBM Cloud Pak for Data through a tile in the IBM Cloud catalog, 
 Michelle, the data analyst takes on the task to build a machine learning model using SPSS Modeler on IBM Cloud. After she builds a model, she uses the model
 to predict future demand for specific products in the retail store. Michelle 
 visualizes the demand, and sends the output to Joe to use this predicted 
-demand as input to his decision optimization model. Use the [predict future product demand using SPSS Modeler](tutorials/spss-tutorial/spss.md) tutorial to see a step-by-step approach of building a 
+demand as input to his decision optimization model. 
+
+Use the [predict future product demand using SPSS Modeler](tutorials/spss-tutorial/spss.md) tutorial to see a step-by-step approach of building a 
 machine learning model using a flow-based editor.
 
 ## Create a machine learning model to optimize plant selection based on cost
@@ -39,6 +41,7 @@ to the decision optimization problem, along with cost and capacity of the plants
 that produce the items that he needs to replenish. Using IBM's Decision Optimization engine,
 Joe is able to find the optimal combination of warehouses to select in order to minimize 
 procurement cost while still replenishing inventory as suggested by the estimated demand. 
+
 Use the [Optimize plant selection based on cost and capacity with Decision Optimization](tutorials/decision-optimization-tutorial/README.md) tutorial to see a step-by-step approach 
 of building and deploying a decision optimization model using UI-based modeling assistant.
 
@@ -50,7 +53,8 @@ to the model is the demand generated from
 the SPSS model, and the SPSS model runs periodically to 
 get the latest predicted demand. He builds a web-application that calls the 
 deployed Decision Optimization model via API in order to help the store 
-manager to optimize inventory and reduce cost based the demand prediction.  
+manager to optimize inventory and reduce cost based the demand prediction. 
+
 Use the [Create a web-application to optimize plant selection based on cost and capacity](web-app/README.md) to see how to 
 build a web-application that accesses a deployed decision optimization 
 model via API and displays the results for the manager to 
