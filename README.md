@@ -43,13 +43,20 @@ Use the [Optimize plant selection based on cost and capacity with Decision Optim
 of building a decision optimization model using UI-based modeling assistant.
 
 ## Create a web-application for the procurement manager to use
-To make his machine learning model easy to use, Joe deploys his decision optimization
-model created from the previous step, and accesses it via API. He builds a  
-web-application that calls the deployed model via API in order to give the store manager
-the optimal combination of plants and the number of items to order from each plant. The 
-application displays the results using bar charts. Use the [Create a web-application to optimize plant selection based on cost and capacity](web-app/README.md) to see how to 
-build a web-application that accesses a deployed decision optimization model via API 
-and displays the results as a bar chart for the manager to use. 
+To make his machine learning model easy to use, Joe deploys his decision 
+optimization model created from the previous step to production, and 
+accesses it via API. The input to the model is the demand generated from 
+the SPSS model he has deployed, and this model will be run periodically to 
+get the latest predicted demand. He builds a web-application that calls the 
+deployed model via API in order to allows the store manager to optimize 
+inventory and reduce cost based the demand prediction. 
+
+The application displays the results of Decision Optimization - the optimal 
+combination of plants and the number of items to order from each plant. Use 
+the [Create a web-application to optimize plant selection based on cost and capacity](web-app/README.md) to see how to 
+build a web-application that accesses a deployed decision optimization 
+model via API and displays the results for the manager to 
+use. 
 
 ## Conclusion
 In this case study, we've seen how a development team can help their procurement manager 
