@@ -85,7 +85,7 @@ human resources, and determining which plant should manufacture which product, w
 8. [Add Objectives](#8-Add-Objectives)
 9. [Add Constraints](#9-Add-Constraints)
 10. [Explore Solution](#10-Explore-Solution)
-11. [Deploy Model](#11-deploy-model-optional---only-needed-for-web-application-connection)
+11. [Deploy Model (Optional - needed for web-app only)](#11-deploy-model-optional---only-needed-for-web-application-connection)
 12. [Import Intermediate Scenario](#12-import-intermediate-scenario)
 13. [Conclusion](#13-Conclusion)
 
