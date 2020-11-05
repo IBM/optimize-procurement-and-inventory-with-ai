@@ -40,10 +40,11 @@ that produce the items that he needs to replenish. Using IBM's Decision Optimiza
 Joe is able to find the optimal combination of warehouses to select in order to minimize 
 procurement cost while still replenishing inventory as suggested by the estimated demand. 
 Use the [Optimize plant selection based on cost and capacity with Decision Optimization](tutorials/decision-optimization-tutorial/README.md) tutorial to see a step-by-step approach 
-of building a decision optimization model using UI-based modeling assistant.
+of building and deploying a decision optimization model using UI-based modeling assistant.
 
 ## Create a web-application for the procurement manager to use
-To make his machine learning model easy to use, Joe deploys his decision 
+Now that Joe has finished testing his decision optimization model, Joe 
+deploys his decision 
 optimization model created from the previous step to production. The input 
 to the model is the demand generated from 
 the SPSS model, and the SPSS model runs periodically to 

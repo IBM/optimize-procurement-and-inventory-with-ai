@@ -141,34 +141,6 @@ As shown in the image below, the apikey can be copy and pasted from the download
 curl -X POST 'https://iam.cloud.ibm.com/oidc/token' -H 'Content-Type: application/x-www-form-urlencoded' -d 'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=aSULp7nFTJl-jGx*******aQXfA6dxMlpuQ9QsOW'
 ```
 
-### 7.3 (Windows Users only) - Using Windows 10 and Powershell to generate the access token
-
-* Install python.org Windows distro 3.8.3 from http://python.org - make sure to add the /python38/scripts folder path to the $PATH environment, if you do not, you will get errors trying to run flask (flask.exe is installed to the scripts folder)
-
-* Remove powershell alias for curl and install curl from python3.8
-
-```
-PS C:/> remove-item alias:curl
-
-PS C:/> pip3 install curl
-```
-
-* 3.	Execute curl to get secure token from IBM IAM. Please note that the token expires after 60 minutes. If you get an internal server error from the main query page (The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application), it may be due to the token expiring. Also note that in powershell the continuation character is ‘
-
-```
-curl -X POST 'https://iam.cloud.ibm.com/oidc/token' -H 'Content-Type: application/x-www-form-urlencoded' -d 'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=<apikey>'
-```
-
-### 7.4 Modify the 'web-app/app.py' file
-
-* Copy and paste the access token into the header in the `web-app/app.py` file. Replace the line
-`" TODO: ADD YOUR IAM ACCESS TOKEN FROM IBM CLOUD HERE"` with your token.
-
-
-
-
-Go into the web-app directory and run `npm install`. Note that this app is tested using Node version 14.15.
-
 ## Step 3. Run the app
 
 From the `web-app` directory, run `npm start` and then go to `localhost:8080` in the browser of your choice.
