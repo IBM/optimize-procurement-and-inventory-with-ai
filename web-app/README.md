@@ -66,21 +66,13 @@ First, run the following command to clone the repo in the location of your choic
 git clone https://github.ibm.com/Horea-Porutiu/decision-optimization-case-study
 ```
 
-## Step 2. Download the dependencies
-
-Go into the web-app directory and run `npm install`. Note that this app is tested using Node version 14.15.
-
-## Step 3. Create Environmental Variables
-
-## Step 3. Create Deployment Space
+## Step 2. Set the Model Deployment ID
 
 In order for our web-app to communicate with our deployed Watson Machine Learning model, we must set a few
 environmental variables that our app depends on. The variables are the following:
 * Space ID
 * Deployment ID
 * Authorization Token or `TOKEN`
-
-### Step 3.1 Set the Model Deployment ID
 
 If you haven't followed the steps in the previous tutorial to deploy your Decision Optimization model, 
 you can find the steps [here](https://github.ibm.com/Horea-Porutiu/decision-optimization-case-study/tree/master/tutorials/decision-optimization-tutorial#11-deploy-model-optional---only-needed-for-web-application-connection).
@@ -92,7 +84,7 @@ Once you have copied your Deployment ID, go ahead and edit the .env.sample file 
 DEPLOYMENT_ID='2cbb1ae1-aeb5-zzzzz-b540-76b18de12ca1'
 ```
 
-### Step 3.2 Set the Space ID
+## Step 3. Set the Space ID
 
 Follow the step 11.2 in the previous tutorial [here](https://github.ibm.com/Horea-Porutiu/decision-optimization-case-study/tree/master/tutorials/decision-optimization-tutorial#112-save-your-space-id-needed-for-api-access) to find your Space ID where 
 your model is deployed. 
@@ -103,7 +95,7 @@ Edit the .env.sample file and fill in the `SPACE_ID` line. It should look like t
 SPACE_ID='6b00e95c-e9c2-zzzz-a01e-01dee680ef87'
 ```
 
-### 3.3 Create an API key
+## Step 4. Create an API key
 
 Before we can create our authorization token, we need an IBM Cloud API key.
 
@@ -127,7 +119,7 @@ Before we can create our authorization token, we need an IBM Cloud API key.
 ![download](https://user-images.githubusercontent.com/10428517/95252393-ccc5b380-07d1-11eb-8d14-9d7154f71b86.png)
 
 
-### 3.4 Generate the access token
+## Step 5. Generate the access token
 
 * From the command line, type ```curl -V``` to verify if cURL is installed in your system. If cURL is not installed, refer to [this](https://develop.zendesk.com/hc/en-us/articles/360001068567-Installing-and-using-cURL#install) instructions to get it installed.
 
@@ -159,15 +151,32 @@ something like below: (Note that I cut part of the token above, so normally it's
 TOKEN='Bearer eyJraWQiOiIyMDIwMTAyMjE4MzMiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJJQk1pZC01MEFWSzExMDVEIiwiaWQiOiJJQk1pZC01MEFWSzExMDA'
 ```
 
-Save the file, and rename the file to be `.env`. **Congratulations!** You're now ready to run the app! 
+Once you are done, the
 
+Save the file, and rename the file to be `.env`. Once you are all done updating the TOKEN, SPACE_ID, and DEPLOYMENT_ID, your file should look something like this, except your token will likely be much longer:
 
+```
+PORT=8080
 
-## Step 3. Run the app
+HOST='0.0.0.0'
 
-From the `web-app` directory, run `npm start` and then go to `localhost:8080` in the browser of your choice.
+TOKEN='Bearer eyJraWQiOiIyMDIwMTAyMjE4MzMiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJJQk1pZC01MEFWSzExMDVEIiwiaWQiOiJJQk1pZC01MEFWSzExMDA'
 
-## Step 3. Create IBM Cloud services
+SPACE_ID='5fd82822-f9ca-4ce8-b653-f48ac3da3161'
+
+NAME='horea-demo-resource'
+
+DEPLOYMENT_ID='a8134b87-8c81-4888-8159-33bd80192e4d'
+```
+
+ **Congratulations!** You're now ready to run the app! 
+
+## Step 6. Run the app
+
+From the `web-app` directory, run `npm install`. Once you're dependencies are done installing,
+run `npm start` to start the application.
+
+Next, go to `localhost:8080` in the browser of your choice.
 
 ## Related Links
 * [Predict Insurance Charges with AutoAI](https://github.com/IBM/predict-insurance-charges-with-autoai)
