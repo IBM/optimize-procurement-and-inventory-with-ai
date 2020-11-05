@@ -86,6 +86,7 @@ human resources, and determining which plant should manufacture which product, w
 9. [Add Constraints](#9-Add-Constraints)
 10. [Explore Solution](#10-Explore-Solution)
 11. [Deploy Model (Optional - needed for web-app only)](#11-deploy-model-optional---only-needed-for-web-application-connection)
+
 12. [Import Intermediate Scenario](#12-import-intermediate-scenario)
 13. [Conclusion](#13-Conclusion)
 
@@ -349,7 +350,7 @@ There you will see your `Space ID`. This is needed for the web-app.
 
 ![addProj](images/space-id.png)
 
-### 11. Import Intermediate Scenario
+### 12. Import Intermediate Scenario
 
 Next, let's import a more complex scenario. Click on the `Scenarios` Button from the top tab.
 
@@ -392,7 +393,7 @@ Great job! You now know how to import scenarios into Decision Optimization.
 For more complex scenarios, take a look at [DO-samples](https://github.com/IBMDecisionOptimization/DO-Samples) on GitHub.
 
 
-### 12. Conclusion
+### 13. Conclusion
 <b>Congratulations!</b> You've just finished running your first decision optimization experiment. You know understand 
 how to setup a decision optimization problem, import data, set objectives and constraints, and then run the model. 
 
