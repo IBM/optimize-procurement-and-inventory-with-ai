@@ -300,6 +300,56 @@ We can now examine the solution.
 
 In conclusion, CPLEX allocated 100 units to the lowest cost plants for creating hand sanitizer, and 120 for masks. We met demand, at the lowest cost possible.
 
+### 11. Deploy Model (Optional - only needed for web-application connection)
+
+Go back to your introScenario by clicking on the scenario on the top of the page. Click on the 
+`three-dot` icon and then on `Save for deployment`.
+
+![addProj](images/save-deploy.png)
+
+Name the model as you want. Click `Save`.
+
+![addProj](images/save.png)
+
+You should see a notification that the model was successfully saved. Click on `View in project`. If you missed
+the notification, just click on `Projects/demo-sept29`.
+
+![addProj](images/view-proj.png)
+
+From your project, go down to `Models`. You should see your newly saved model there. Click on the `three-dot` icon and then on `Promote`.
+
+![addProj](images/promote.png)
+
+The next page will let you pick which space to deploy to. Pick the one we created in step 4. Click `Promote`.
+
+![addProj](images/promote2.png)
+
+You should see a notification that successfully promoted your model to the deployment space. Click on the
+`deployment space` in the notification to prepare your model for deployment. 
+
+![addProj](images/success-deploy.png)
+
+In your deployment space, you should see your model that you promoted. Click on `Deploy`. 
+
+![addProj](images/deploy-sept29.png)
+
+This will create a deployment. Name it as you want, and select the hardware definition you want. Click `Create`.
+
+![addProj](images/demo-deployment.png)
+
+### 11.1 Save your Deployment ID (Needed for API access)
+Once you've created the deployment, you should see the `Deployment ID` on the right-hand side of the screen.
+Copy this. You will need this for the web-application environmental variables. Once you've saved 
+your Deployment ID, click on your deployment space. Mine is `horea-deploy-demo`.
+
+![addProj](images/deployment-id.png)
+### 11.2 Save your Space ID (Needed for API access)
+
+Once you're in your deployment space, click on `settings` from the top of the page. 
+There you will see your `Space ID`. This is needed for the web-app.
+
+![addProj](images/space-id.png)
+
 ### 11. Import Intermediate Scenario
 
 Next, let's import a more complex scenario. Click on the `Scenarios` Button from the top tab.
