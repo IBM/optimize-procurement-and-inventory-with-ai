@@ -85,8 +85,9 @@ human resources, and determining which plant should manufacture which product, w
 8. [Add Objectives](#8-Add-Objectives)
 9. [Add Constraints](#9-Add-Constraints)
 10. [Explore Solution](#10-Explore-Solution)
-11. [Import Intermediate Scenario](#11-Import-Intermediate-Scenario)
-12. [Conclusion](#12-Conclusion)
+11. [Deploy Model](#11-deploy-model-optional---only-needed-for-web-application-connection)
+12. [Import Intermediate Scenario](#12-import-intermediate-scenario)
+13. [Conclusion](#13-Conclusion)
 
 ### 1. Create Watson Studio service
 
@@ -266,8 +267,6 @@ define the max and min values.
 * Lastly, type in `for each customerDemand, total allocation of plants (such that plants Product is customerDemand) is less than or equal to Demand` into the `Suggestions`. Add this to our model. 
 
 ![constraints](https://media.github.ibm.com/user/79254/files/d6efae00-07e1-11eb-8ed4-f30f7f553ab7)
-
-
 
 ### 10. Explore Solution
 Next, make sure the objectives and constrains are the same as the screenshot below, and then click on `Run model` from the
