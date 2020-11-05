@@ -44,16 +44,13 @@ of building a decision optimization model using UI-based modeling assistant.
 
 ## Create a web-application for the procurement manager to use
 To make his machine learning model easy to use, Joe deploys his decision 
-optimization model created from the previous step to production, and 
-accesses it via API. The input to the model is the demand generated from 
-the SPSS model he has deployed, and this model will be run periodically to 
+optimization model created from the previous step to production. The input 
+to the model is the demand generated from 
+the SPSS model, and the SPSS model runs periodically to 
 get the latest predicted demand. He builds a web-application that calls the 
-deployed model via API in order to allows the store manager to optimize 
-inventory and reduce cost based the demand prediction. 
-
-The application displays the results of Decision Optimization - the optimal 
-combination of plants and the number of items to order from each plant. Use 
-the [Create a web-application to optimize plant selection based on cost and capacity](web-app/README.md) to see how to 
+deployed Decision Optimization model via API in order to help the store 
+manager to optimize inventory and reduce cost based the demand prediction.  
+Use the [Create a web-application to optimize plant selection based on cost and capacity](web-app/README.md) to see how to 
 build a web-application that accesses a deployed decision optimization 
 model via API and displays the results for the manager to 
 use. 
