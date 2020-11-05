@@ -396,6 +396,7 @@ For more complex scenarios, take a look at [DO-samples](https://github.com/IBMDe
 <b>Congratulations!</b> You've just finished running your first decision optimization experiment. You know understand 
 how to setup a decision optimization problem, import data, set objectives and constraints, and then run the model. 
 
-In the next part of the tutorial, we will look at a more complex problem with more data tables and more constraints. 
+You have also learned how to deploy the model, and where to find important model information such as the
+deployment ID and the space ID, which are needed to connect to the deployed model via API.
 
-We will also show how to deploy the model to Watson Machine Learning and interact with the model using a web-app.
+In the next part of the tutorial, we will look at how to interact with the model using a web-app.

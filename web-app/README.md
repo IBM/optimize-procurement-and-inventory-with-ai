@@ -76,11 +76,34 @@ Go into the web-app directory and run `npm install`. Note that this app is teste
 
 In order for our web-app to communicate with our deployed Watson Machine Learning model, we must set a few
 environmental variables that our app depends on. The variables are the following:
-* Authorization Token or `TOKEN`
 * Space ID
 * Deployment ID
+* Authorization Token or `TOKEN`
 
-### 3.1 Create an API key
+### Step 3.1 Set the Model Deployment ID
+
+If you haven't followed the steps in the previous tutorial to deploy your Decision Optimization model, 
+you can find the steps [here](https://github.ibm.com/Horea-Porutiu/decision-optimization-case-study/tree/master/tutorials/decision-optimization-tutorial#11-deploy-model-optional---only-needed-for-web-application-connection).
+
+Once you have copied your Deployment ID, go ahead and edit the .env.sample file and fill in the 
+`DEPLOYMENT_ID` line. It should look like the following when it is done:
+
+```
+DEPLOYMENT_ID='2cbb1ae1-aeb5-zzzzz-b540-76b18de12ca1'
+```
+
+### Step 3.2 Set the Space ID
+
+Follow the step 11.2 in the previous tutorial [here](https://github.ibm.com/Horea-Porutiu/decision-optimization-case-study/tree/master/tutorials/decision-optimization-tutorial#112-save-your-space-id-needed-for-api-access) to find your Space ID where 
+your model is deployed. 
+
+Edit the .env.sample file and fill in the `SPACE_ID` line. It should look like the following when it is done:
+
+```
+SPACE_ID='6b00e95c-e9c2-zzzz-a01e-01dee680ef87'
+```
+
+### 3.3 Create an API key
 
 Before we can create our authorization token, we need an IBM Cloud API key.
 
@@ -104,42 +127,41 @@ Before we can create our authorization token, we need an IBM Cloud API key.
 ![download](https://user-images.githubusercontent.com/10428517/95252393-ccc5b380-07d1-11eb-8d14-9d7154f71b86.png)
 
 
-### 7.2 Get model deployment ID
-
-<!-- ![model-deploy-url](https://user-images.githubusercontent.com/10428517/81858555-caa84300-9518-11ea-9088-3f088216da83.gif) -->
-
-* From inside Watson Studio (Or Cloud Pak for Data), click on `Deployment Spaces`. 
-
-* From there, click on the name of the deployment in which you deployed your model to.
-
-* Next, click on on the name of the model.
-
-* Next, click on the deployment of the model.
-
-* From there, you will be taken to the deployment API reference page - on the right hand side you can see the `Deployment ID`. Go ahead and copy that 
-and keep it handy - you will need to paste that into your `app.py` page.
-
-![deploy-id](https://user-images.githubusercontent.com/10428517/95250925-a737aa80-07cf-11eb-9ff2-a51399f7c300.png)
-
-
-### 7.3 Generate the access token
+### 3.4 Generate the access token
 
 * From the command line, type ```curl -V``` to verify if cURL is installed in your system. If cURL is not installed, refer to [this](https://develop.zendesk.com/hc/en-us/articles/360001068567-Installing-and-using-cURL#install) instructions to get it installed.
 
 * Execute the following cURL command to generate your access token, but replace the apikey with the 
-apikey you got from [step 7.1](https://github.com/IBM/predict-insurance-charges-with-autoai#71-get-IBM-Cloud-API-key) above. 
+apikey you got from 3.3 above. 
 
 ```
 curl -X POST 'https://iam.cloud.ibm.com/oidc/token' -H 'Content-Type: application/x-www-form-urlencoded' -d 'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=<api-key-goes-here>'
 ```
 
-As shown in the image below, the apikey can be copy and pasted from the downloaded file from the end of [step 7.1](https://github.com/IBM/predict-insurance-charges-with-autoai#71-get-IBM-Cloud-API-key). The curl request would look something like this after the apikey is pasted in:
+As shown in the image below, the apikey can be copy and pasted from the downloaded file from the end of [step 3.3. The curl request would look something like this after the apikey is pasted in:
 
 ![api](https://user-images.githubusercontent.com/10428517/95252350-c0d9f180-07d1-11eb-841e-d5cd72da72d4.png)
 
 ```
 curl -X POST 'https://iam.cloud.ibm.com/oidc/token' -H 'Content-Type: application/x-www-form-urlencoded' -d 'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=aSULp7nFTJl-jGx*******aQXfA6dxMlpuQ9QsOW'
 ```
+
+Once you run that command, you should see something like the following:
+
+```
+{"access_token":"eyJraWQiOiIyMDIwMTAyMjE4MzMiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJJQk1pZC01MEFWSzExMDVEIiwiaWQiOiJJQk1pZC01MEFWSzExMDA","refresh_token":"OKCYCb-IdO4HCPUwtJBhtDOhBBz8xvarvbdaWB6n9W2G9IqeOOuMRS7Gs-SP46VGa0LmVVvRwldJiiiBEfVLqYTY5dBZ9MTOf51S5AfC51FbHmHWJuFVTo6","ims_user_id":7560901,"token_type":"Bearer","expires_in":3600,"expiration":1604608674,"refresh_token_expiration":1607197074,"scope":"ibm openid"}%     
+```
+
+Copy and paste only the `access_token` part into the `.env.sample` file. Once you've done this, it should look
+something like below: (Note that I cut part of the token above, so normally it's much longer)
+
+```
+TOKEN='Bearer eyJraWQiOiIyMDIwMTAyMjE4MzMiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJJQk1pZC01MEFWSzExMDVEIiwiaWQiOiJJQk1pZC01MEFWSzExMDA'
+```
+
+Save the file, and rename the file to be `.env`. **Congratulations!** You're now ready to run the app! 
+
+
 
 ## Step 3. Run the app
 
