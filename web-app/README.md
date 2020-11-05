@@ -124,7 +124,7 @@ Before we can create our authorization token, we need an IBM Cloud API key.
 * From the command line, type ```curl -V``` to verify if cURL is installed in your system. If cURL is not installed, refer to [this](https://develop.zendesk.com/hc/en-us/articles/360001068567-Installing-and-using-cURL#install) instructions to get it installed.
 
 * Execute the following cURL command to generate your access token, but replace the apikey with the 
-apikey you got from 3.3 above. 
+apikey you got from step 4 above. 
 
 ```
 curl -X POST 'https://iam.cloud.ibm.com/oidc/token' -H 'Content-Type: application/x-www-form-urlencoded' -d 'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=<api-key-goes-here>'
