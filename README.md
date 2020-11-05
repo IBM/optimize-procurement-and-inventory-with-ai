@@ -46,14 +46,13 @@ Use the [Optimize plant selection based on cost and capacity with Decision Optim
 of building and deploying a decision optimization model using UI-based modeling assistant.
 
 ## Create a web-application for the procurement manager to use
-Now that Joe has finished testing his decision optimization model, Joe 
-deploys his decision 
-optimization model created from the previous step to production. The input 
-to the model is the demand generated from 
+Now that the Decision Optimization model has been made available, Joe creates a web-application. The input 
+to the Decision Optimization model is the demand generated from 
 the SPSS model, and the SPSS model runs periodically to 
-get the latest predicted demand. He builds a web-application that calls the 
-deployed Decision Optimization model via API in order to help the store 
-manager to optimize inventory and reduce cost based the demand prediction. 
+get the latest predicted demand. The user can input their demand and plant
+cost and capacity, and get a result from the application. The result is the optimal plant
+strategy - which plant to order from, and the quantity of items to order from each plant in order
+to fullfil demand and minimize cost.
 
 Use the [Create a web-application to optimize plant selection based on cost and capacity](web-app/README.md) to see how to 
 build a web-application that accesses a deployed decision optimization 
