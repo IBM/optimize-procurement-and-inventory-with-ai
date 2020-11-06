@@ -193,6 +193,23 @@ back from the model. Be patient!
 
 ![DOproj2](https://media.github.ibm.com/user/79254/files/1a267380-1f7e-11eb-8806-0299b3a9fc44)
 
+## Step 6.2 Input your own data 
+
+Since our model has been trained on receiving product demand, plant cost, and plant capacity, 
+we need to make sure our own data fits these parameters.
+
+Click on `Upload data` and then select the two files you want to input. Make sure they are 
+named `customerDemand.csv` and `plants.csv`, otherwise you will get an error. 
+
+Click on `Optimize`. Wait a few seconds and then click on `see solution`.
+
+![DOproj2-2](https://media.github.ibm.com/user/79254/files/cec89100-1f8e-11eb-9e34-026cb412f1a3)
+
+## Conclusion
+**Congratulations!** You've now learned how to deploy a Decision Optimization model, connect to it 
+via API, and use a web-app to interact with your deployed Watson Machine Learning model. For more 
+examples around Decision Optimization, see the [Decision Optimization Samples Github page](https://github.com/IBMDecisionOptimization/DO-Samples/tree/watson_studio_cloud).
+
 ## Related Links
 * [Predict Insurance Charges with AutoAI](https://github.com/IBM/predict-insurance-charges-with-autoai)
 * [Use AutoAI to predict Customer Churn tutorial](https://developer.ibm.com/tutorials/watson-studio-auto-ai/)
