@@ -35,7 +35,8 @@ When the reader has completed this code pattern they will understand how to:
 
 ## Featured technologies
 + [artificial-intelligence](https://developer.ibm.com/technologies/artificial-intelligence/) - Build and train models, and create apps, with a trusted AI-infused platform.
-+ [Node.js](https://nodejs.org/) - Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+
++ [Node](https://nodejs.org/) - Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 
 ## Prerequisites
 
