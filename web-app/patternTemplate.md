@@ -68,10 +68,9 @@ This code pattern is part of the [Develop an intelligent inventory and procureme
 * Node.js
 
 ## Related IBM Developer Content
-* [Fraud Prediction Using AutoAI](https://github.com/IBM/predict-fraud-using-auto-ai)
-* [Use AutoAI to predict Customer Churn tutorial](https://developer.ibm.com/tutorials/watson-studio-auto-ai/)
-* [Predict Loan Default with AutoAI tutorial](https://developer.ibm.com/tutorials/generate-machine-learning-model-pipelines-to-choose-the-best-model-for-your-problem-autoai/)
+* [Build a predictive machine learning model quickly and easily with IBM SPSS Modeler](https://developer.ibm.com/tutorials/build-an-ai-model-visually-with-spss-modeler-flow/)
+* [Fraud detection with SPSS Modeler](https://developer.ibm.com/tutorials/fraud-detection-with-spss-modeler/)
 
 ## Related links
-* [What is AutoAI with IBM Watson Studio](https://www.ibm.com/cloud/watson-studio/autoai)
-* [What is linear regression](https://www.statisticssolutions.com/what-is-linear-regression/)
+* [Decision Optimization](https://www.ibm.com/analytics/decision-optimization)
+* [Decision Optimization for Watson Studio](https://www.ibm.com/cloud/decision-optimization-for-watson-studio)
