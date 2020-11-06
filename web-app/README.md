@@ -1,24 +1,20 @@
-# Create a web-application to optimize plant selection based on cost and capacity
+# Create a web-application to optimize inventory 
 
 <!-- ![finalDemo](https://user-images.githubusercontent.com/10428517/82013347-f7e71500-962e-11ea-9c28-2dec7d5b30cd.gif) -->
 
-As shown above, this application leverages Decision Optimization machine learning models to tell the user which plant to order items for in order to minimize cost.
+![DOproj2](https://media.github.ibm.com/user/79254/files/1a267380-1f7e-11eb-8806-0299b3a9fc44)
 
-By leveraging AI and machine learning, we help a store manager predict demand and optimize inventory while choosing plants with the lowest cost.
+In this code pattern we will create a web-based application to optimize inventory.
 
-## Description
+Using historical demand data to train our machine learning model, we can predict demand for certain items more accurately in the 
+future, and ensure that our customers will be able to purchase what they want. Using this predicted demand as input, 
+along with manufacturing plant data such as cost and capacity, our application will enable a store manager to quickly 
+choose the best manufacturing plants in order to optimize inventory and minimize cost. 
 
-<!-- Using IBM AutoAI, you automate all the tasks involved in building predictive models for different requirements. You see how AutoAI generates great models quickly which save time and effort and aid in faster decision-making process. You create a model that from a data set that includes the age, sex, BMI, number-of-children, smoking preferences, region and charges to predict the health insurance premium cost that an individual pays. -->
+When the reader has completed this code pattern they will understand how to:
 
-When you have completed this code pattern, you understand how to:
-
-<!-- * Setup, quickly, the services on IBM Cloud for building the model.
-* Ingest the data and initiate the AutoAI process.
-* Build different models using AutoAI and evaluate the performance.
-* Choose the best model and complete the deployment.
-* Generate predictions using the deployed model by making REST calls.
-* Compare the process of using AutoAI and building the model manually.
-* Visualize the deployed model using a front-end application. -->
+* Deploy a Node.js based web application
+* Send and receive messages from a deployed Watson Machine Learning model using REST APIs
 
 ### Architecture Components
 
@@ -29,8 +25,8 @@ When you have completed this code pattern, you understand how to:
 2. The user creates an IBM Cloud Object Storage Service and adds that to Watson Studio.
 3. The user uploads the demand and plant data files into Watson Studio.
 4. The user creates an Decision Optimization experiment and sets objectives to minimize cost via the modeling assistant.
-5. The user saves the Decision Optmization as a model, and deploys it using Watson Machine Learning.
-6. The user uses the Node.js application to connect to the deployed model via API and find the optimal plant selection based on cost and capacity.
+5. The user saves the Decision Optimization as a model, and deploys it using Watson Machine Learning.
+6. The user uses the Node.js application to connect to the deployed model via API and finds the optimal plant selection based on cost and capacity.
 
 ## Included components
 *	[IBM Watson Studio](https://cloud.ibm.com/catalog/services/watson-studio) - IBM Watson® Studio helps data scientists and analysts prepare data and build models at scale across any cloud.
@@ -51,12 +47,11 @@ link below to sign up for a no-charge trial account - no credit card required.
 # Steps
 0. [Download the data set ](#step-0-Download-the-data-set)
 1. [Clone the repo](#step-1-clone-the-repo)
-<!-- 2. [Explore the data (optional)](#step-2-explore-the-data-optional)
-3. [Create IBM Cloud services](#step-3-create-ibm-cloud-services)
-4. [Create and Run AutoAI experiment](#step-4-create-and-run-autoai-experiment)
-5. [Create a deployment and test your model](#step-5-create-a-deployment-and-test-your-model)
-6. [Create a notebook from your model (optional)](#step-6-create-a-notebook-from-your-model-optional)
-7. [Run the application](#step-7-run-the-application) -->
+2. [Set the Model Deployment ID](#step-2-set-the-model-deployment-id)
+3. [Set the Model Space ID](#step-3-set-the-model-space-id)
+4. [Create an IBM Cloud API key](#step-4-create-an-IBM-Cloud-api-key)
+5. [Generate the access token](#step-5-Generate-the-access-token)
+6. [Run the application](#step-6-run-the-app)
 
 ## Step 1. Clone the repo
 
@@ -95,7 +90,7 @@ Edit the .env.sample file and fill in the `SPACE_ID` line. It should look like t
 SPACE_ID='6b00e95c-e9c2-zzzz-a01e-01dee680ef87'
 ```
 
-## Step 4. Create an API key
+## Step 4. Create an IBM Cloud API key
 
 Before we can create our authorization token, we need an IBM Cloud API key.
 
@@ -177,6 +172,25 @@ From the `web-app` directory, run `npm install`. Once you're dependencies are do
 run `npm start` to start the application.
 
 Next, go to `localhost:8080` in the browser of your choice.
+
+You should see something like this:
+
+![Architecture Components](./public/images/app.png)
+
+## Step 6.1 Default Scenario
+
+First, go ahead and try the default scenario. Click on the `Run Scenario` button. 
+
+In a few seconds you should see that a job has been created. 
+
+Wait a few seconds, and then click on the `See Solution` button. This is the same scenario we 
+worked with in the previous tutorial. To view the input data that is passed into our 
+Decision Optimization model, go to the `data.js` file in the `web-app` directory. 
+
+**Note:** After you click on `see solution` the app may take up to 20 seconds to get the results 
+back from the model. Be patient!
+
+![DOproj2](https://media.github.ibm.com/user/79254/files/1a267380-1f7e-11eb-8806-0299b3a9fc44)
 
 ## Related Links
 * [Predict Insurance Charges with AutoAI](https://github.com/IBM/predict-insurance-charges-with-autoai)
