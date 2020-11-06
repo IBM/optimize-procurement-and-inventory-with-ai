@@ -4,17 +4,8 @@
 
 ![DOproj2](https://media.github.ibm.com/user/79254/files/1a267380-1f7e-11eb-8806-0299b3a9fc44)
 
-In this code pattern we will create a web-based application to optimize inventory.
 
-Using historical demand data to train our machine learning model, we can predict demand for certain items more accurately in the 
-future, and ensure that our customers will be able to purchase what they want. Using this predicted demand as input, 
-along with manufacturing plant data such as cost and capacity, our application will enable a store manager to quickly 
-choose the best manufacturing plants in order to optimize inventory and minimize cost. 
 
-When the reader has completed this code pattern they will understand how to:
-
-* Deploy a Node.js based web application
-* Send and receive messages from a deployed Watson Machine Learning model using REST APIs
 
 ### Architecture Components
 
@@ -35,7 +26,6 @@ When the reader has completed this code pattern they will understand how to:
 
 ## Featured technologies
 + [artificial-intelligence](https://developer.ibm.com/technologies/artificial-intelligence/) - Build and train models, and create apps, with a trusted AI-infused platform.
-
 + [Node](https://nodejs.org/) - Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 
 ## Prerequisites
@@ -46,7 +36,6 @@ link below to sign up for a no-charge trial account - no credit card required.
   - [Node.js]https://nodejs.org/en/download/)
 
 # Steps
-0. [Download the data set ](#step-0-Download-the-data-set)
 1. [Clone the repo](#step-1-clone-the-repo)
 2. [Set the Model Deployment ID](#step-2-set-the-model-deployment-id)
 3. [Set the Model Space ID](#step-3-set-the-model-space-id)

@@ -12,49 +12,51 @@ Create a web-application that uses IBM's Decision Optimization prescriptive anal
 
 ### Github repo
 
-> https://github.com/IBM/predict-insurance-charges-with-ai
+> https://github.com/IBM/optimize-procurement-and-inventory-with-ai
 
 # Summary
+In this code pattern we will create a web-based application to optimize inventory.
 
-As we see the value of gross insurance premiums worldwide continue to skyrocket past 5 trillion dollars,
-we know that most of these costs are preventable. For example, just by eliminating smoking, and lowering
-your BMI by a few points could mean shaving thousands of dollars off of your premium charges. In this 
-application, we study the effects of age, smoking, BMI, gender, and region to determine how much of 
-a difference these factors can make on your insurance premium.  By using our 
-application, customers see the radical difference their lifestyle choices make on their insurance 
-charges. By leveraging AI and machine learning, we help customers understand just how much smoking increases their premium, by predicting how much they will have to pay within seconds.
+Using historical demand data to train our machine learning model, we can predict demand for certain items more accurately in the 
+future, and ensure that our customers will be able to purchase what they want. Using this predicted demand as input, 
+along with manufacturing plant data such as cost and capacity, our application will enable a store manager to quickly 
+choose the best manufacturing plants in order to optimize inventory and minimize cost. 
 
-# Technologies
+When the reader has completed this code pattern they will understand how to:
 
-+ [artificial-intelligence](https://developer.ibm.com/technologies/artificial-intelligence/) Build and train models, and create apps, with a trusted AI-infused platform.
-+ [Python](https://www.python.org/) Python is an interpreted, high-level, general-purpose programming language.
-
-
-# Description
-
-Using IBM AutoAI, we automate all the tasks involved in building predictive models for different requirements. You see how AutoAI generates great models quickly which save time and effort and aid in faster decision-making process. You create a model that from a data set that includes the age, sex, BMI, number-of-children, smoking preferences, region and charges to predict the health insurance premium cost that an individual pays.
-
-When you have completed this code pattern, you understand how to:
-
-* Setup, quickly, the services on IBM Cloud for building the model.
-* Ingest the data and initiate the AutoAI process.
-* Build different models using AutoAI and evaluate the performance.
-* Choose the best model and complete the deployment.
-* Generate predictions using the deployed model by making REST calls.
-* Compare the process of using AutoAI and building the model manually.
-* Visualize the deployed model using a front-end application.
+* Deploy a Node.js based web application
+* Send and receive messages from a deployed Watson Machine Learning model using REST APIs
 
 ### Architecture Components
 
-![Architecture Components](https://media.github.ibm.com/user/21063/files/3b77e580-913c-11ea-9dea-425b1d4f4ee0)
+![flow-diagrm](./public/images/arch.png)
 
 ## Flow Description
 1. The user creates an IBM Watson Studio Service on IBM Cloud.
 2. The user creates an IBM Cloud Object Storage Service and adds that to Watson Studio.
-3. The user uploads the insurance premium data file into Watson Studio.
-4. The user creates an AutoAI Experiment to predict insurance premium on Watson Studio
-5. AutoAI uses Watson Machine Learning to create several models, and the user deploys the best performing model.
-6. The user uses the Flask web-application to connect to the deployed model and predict an insurance charge.
+3. The user uploads the demand and plant data files into Watson Studio.
+4. The user creates an Decision Optimization experiment and sets objectives to minimize cost via the modeling assistant.
+5. The user saves the Decision Optimization as a model, and deploys it using Watson Machine Learning.
+6. The user uses the Node.js application to connect to the deployed model via API and finds the optimal plant selection based on cost and capacity.
+
+
+
+# Instructions
+
+Get detailed instructions from the [README](https://github.ibm.com/Horea-Porutiu/decision-optimization-case-study/blob/master/web-app/README.md) file. Those 
+instructions explain how to:
+
+1. [Clone the repo](#step-1-clone-the-repo)
+2. [Set the Model Deployment ID](#step-2-set-the-model-deployment-id)
+3. [Set the Model Space ID](#step-3-set-the-model-space-id)
+4. [Create an IBM Cloud API key](#step-4-create-an-IBM-Cloud-api-key)
+5. [Generate the access token](#step-5-Generate-the-access-token)
+6. [Run the application](#step-6-run-the-app)
+
+This code pattern is part of the [Develop an intelligent inventory and procurement strategy using AI](https://github.ibm.com/Horea-Porutiu/decision-optimization-case-study) series.
+
+
+
 
 # Components and services
 *	[IBM Watson Studio](https://console.bluemix.net/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks) gives you total control of your blockchain network with a user interface that can simplify and accelerate your journey to deploy and manage blockchain components on the IBM Cloud Kubernetes Service.
@@ -63,7 +65,7 @@ When you have completed this code pattern, you understand how to:
 
 # Runtimes
 
-* Python 3.8.2
+* Node.js
 
 ## Related IBM Developer Content
 * [Fraud Prediction Using AutoAI](https://github.com/IBM/predict-fraud-using-auto-ai)
