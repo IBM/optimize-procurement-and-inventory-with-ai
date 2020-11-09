@@ -2,8 +2,9 @@
 
 One of the most important parts of being a retail store today, going against the likes of Amazon, Etsy, and 
 other online stores is optimizing inventory. If you have too much inventory, you're 
-losing money on the items that you have not sold. Finding the 
-perfect balance by predicting demand is one fit for machine learning.
+losing money on the items that you have not sold. If you don't have enough,
+you are losing money and confidence from your customer. Finding the 
+perfect balance of inventory by predicting demand is a problem that can be solved using machine learning.
 
 Imagine that a large demand spike in cleaning supplies causes our inventory to be exhausted 
 days before new shipments arrive. Machines can learn from this. Using this 
