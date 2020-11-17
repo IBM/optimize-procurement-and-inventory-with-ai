@@ -104,18 +104,33 @@ Watson Studio instance page, which says `Welcome to Watson Studio. Let's get sta
 
 ### 4. Import the data
 
-* SPSS Modeler will then ask you to migrate nodes. Click on `Yes`.
+Next, you should see your flow, as shown below.
 
-![addProj](../images/migrate.png)
+![addProj](../images/flow.png)
 
-* For the import node, click on `Data Assets` and then choose the `TM1 Import.csv` file, which contains our demand data for our retail products. Next, click `OK`.
+On the leftmost side of the flow, under Data Import, hover over the `TM1 Import` node.
+You should see a three-dot icon show up. Click it. 
 
-![addProj](../images/import.png)
+![addProj](../images/three-dot.png)
 
-* For the export node, click on `Target Path` and then choose type out `predictedDemand`. This will be the file name that is created when our model outputs the
-predicted demand. This file will be saved to our current project in Watson Studio. Click `Migrate`.
+Next, click on `Open`.
 
-![addProj](../images/export.png)
+![addProj](../images/open-node.png)
+
+This will open up the right-hand side panel with the TM1 Import node details. Click on
+`Change data asset`.
+
+![addProj](../images/change-data-asset.png)
+
+Next, from the left hand side click on `Data assets` and then click `TM1 Import.csv`. Next, click `OK`.
+
+![addProj](../images/add-data.png)
+
+Next, click `Save` on the right-hand side panel.
+
+![addProj](../images/save-data.png)
+
+Once the flow is updated, you will be ready to explore the data.
 
 ### 5. Explore the data
 
