@@ -7,7 +7,7 @@
 
 
 
-### Architecture Components
+### Architecture Flow
 
 ![Architecture Components](./public/images/arch.png)
 
