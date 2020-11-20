@@ -33,7 +33,7 @@
 This Cloud pattern assumes you have an **IBM Cloud** account. Go to the 
 link below to sign up for a no-charge trial account - no credit card required. 
   - [IBM Cloud account](https://tinyurl.com/y4mzxow5)
-  - [Node.js]https://nodejs.org/en/download/)
+  - [Node.js](https://nodejs.org/en/download/)
 
 # Steps
 1. [Clone the repo](#step-1-clone-the-repo)
