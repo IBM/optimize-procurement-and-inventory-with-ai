@@ -197,7 +197,7 @@ In a terminal of your choice, issue the following command to clone this reposito
 our experiment.
 
 ```
-git clone https://github.ibm.com/Horea-Porutiu/decision-optimization-case-study.git
+git clone https://github.com/IBM/optimize-procurement-and-inventory-with-ai.git
 ```
 
 ### 6. Prepare the data
