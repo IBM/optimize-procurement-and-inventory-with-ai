@@ -48,7 +48,7 @@ link below to sign up for a no-charge trial account - no credit card required.
 First, run the following command to clone the repo in the location of your choice. 
 
 ```
-git clone https://github.ibm.com/Horea-Porutiu/decision-optimization-case-study
+git clone https://github.com/IBM/optimize-procurement-and-inventory-with-ai.git
 ```
 
 ## Step 2. Set the Model Deployment ID
