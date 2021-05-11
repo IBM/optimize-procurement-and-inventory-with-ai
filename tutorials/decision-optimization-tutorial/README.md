@@ -289,6 +289,8 @@ Let's examine the solution. Click on the button next to the magnifying glass to 
 
 We can now examine the solution. 
 
+<b>Note: if you got an error running the model, you can simply click on `Scenarios` in the top right corner, then `Create Scenario` and `From file` and then import the `introScenario.zip` file from the `tutorials/decision-optimization-tutorial/data` directory.</b> After you've imported it you can simply click on Run model to see the results.
+
 * We see that from the plant that produces mask with the highest cost of 3, we have allocated 0. 
 
 * The plant that produces hand sanitizer with the highest cost of 3, we allocated only 70 units, which is below capacity of the plant. 
