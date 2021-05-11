@@ -7,6 +7,8 @@ var bodyParser = require("body-parser");
 const fileupload = require('express-fileupload');
 const defaultData = require('./data.js')
 require('dotenv').config();
+var cors = require('cors')
+app.use(cors());
 
 //tells the application to use body-parser as middleware so it can handle post requests
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -78,7 +80,7 @@ app.post('/send', async function (req, res) {
     {
       headers: {
         'Authorization': process.env.TOKEN,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       }
     });
   await res.send(JSON.stringify(response.data));
