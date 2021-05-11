@@ -98,7 +98,13 @@ Watson Studio instance page, which says `Welcome to Watson Studio. Let's get sta
 
 ![addProj](../images/modelerFlow.png)
 
-* Next, select `From File` and `browse` to where you cloned this repository. Select the `Demand Forecast.str` file. Next, click `Create`.
+* Next, select `From File` and `browse` to where you cloned this repository. If you haven't done so, run the following command to clone the repo: 
+
+```
+git clone https://github.com/IBM/optimize-procurement-and-inventory-with-ai/
+```
+
+ Select the `Demand Forecast.str` file. Next, click `Create`.
 
 ![addProj](../images/newFlow.png)
 
