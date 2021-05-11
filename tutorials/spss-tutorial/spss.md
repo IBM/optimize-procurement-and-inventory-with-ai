@@ -62,7 +62,11 @@ to understand the main functionality of the service.
 * Once you see your service that you just created, click on your service name, and this takes you to your 
 Watson Studio instance page, which says `Welcome to Watson Studio. Let's get started!`. Click on the `Get Started` button.
 
-* This takes you to the Watson Studio tooling. There you see a heading that says `Start by creating a project` and a button that says `Create Project`. Click on `Create a Project`. Next click on `Create an Empty project`.
+* This takes you to the Watson Studio (aka Cloud Pak for Data as a Service) tooling. Click on `Projects`.
+
+![projects](../images/projects.png)
+
+There you see a heading that says `Start by creating a project` or `New Project`. and a button that says `Create Project`. Click on `Create a Project` or `New project`. Next click on `Create an Empty project`.
 
 * On the create a new project page, name your project. One may name the project - `insurance-demo`. You also need to associate an IBM Cloud Object store instance, so that you store the data set.
 
