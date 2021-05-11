@@ -87,7 +87,8 @@ git clone https://github.com/IBM/optimize-procurement-and-inventory-with-ai
 
 * Select `Data`.
 
-* On the right-hand side bar, click on `browse` and then go to where you cloned the repository, and select `TM1 Import.csv`.
+* On the right-hand side bar, click on `browse` and then go to where you cloned the repository, and select `TM1 Import.csv` from the
+`optimize-procurement-and-inventory-with-ai/tutorials/spss-tutorial/data` directory.
 
 ![addProj](../images/browse.png)
 
