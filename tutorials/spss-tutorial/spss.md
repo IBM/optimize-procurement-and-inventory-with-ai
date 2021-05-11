@@ -76,6 +76,11 @@ There you see a heading that says `Start by creating a project` or `New Project`
 
 <!-- ![createProj](https://user-images.githubusercontent.com/10428517/81858932-5fab3c00-9519-11ea-9301-3f55d9e2e98d.gif) -->
 
+* Run the following command to clone the project repo. You'll need to use files from this repo in subsequent steps:
+```
+git clone https://github.com/IBM/optimize-procurement-and-inventory-with-ai
+```
+
 * Once you have created your Watson Studio Project, you see a blue `Add to Project` button on the top-right corner of your screen. 
 
 ![addProj](../images/addData.png)
