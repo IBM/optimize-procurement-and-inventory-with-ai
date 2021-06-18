@@ -221,7 +221,7 @@ var myChart = new Chart(ctx, {
     },
     title: {
       display: true,
-      text: "Predicted Product Demand, Jan 20201"
+      text: "Predicted Product Demand"
     },
     responsive: false
   }

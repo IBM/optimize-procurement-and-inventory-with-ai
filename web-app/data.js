@@ -40,7 +40,7 @@ const data = {
 
 let reqBody = {};
 reqBody.space_id = process.env.SPACE_ID;
-reqBody.name = process.env.NAME;
+reqBody.name = process.env.NAME || 'any-name';
 reqBody.deployment = {};
 reqBody.deployment.id = process.env.DEPLOYMENT_ID;
 reqBody.decision_optimization = {};

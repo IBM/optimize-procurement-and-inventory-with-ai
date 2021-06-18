@@ -1,28 +1,23 @@
 {
   "name": "node-WML",
   "version": "1.0.0",
-  "description": "Node app",
+  "description": "Node app using WML",
   "author": "Horea Porutiu <horeaporutiu@gmail.com>",
   "main": "app.js",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/IBM/node-hello-world-minimal.git"
+    "url": "https://github.com/IBM/optimize-procurement-and-inventory-with-ai"
   },
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "dotenv": "^9.0.2",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "express-fileupload": "^1.2.0",
-    "express-formidable": "^1.2.0",
-    "formidable": "^1.2.2",
-    "multiparty": "^4.2.2",
-    "nodemon": "^2.0.5",
-    "util": "^0.12.3"
+    "express-fileupload": "^1.2.1"
   }
 }
