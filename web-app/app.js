@@ -16,14 +16,10 @@ app.use(bodyParser.json());
 app.use(fileupload());
 app.use(express.static('public'));
 
-//create tag to query for our solution in Watson Machine Learning easier
-let randomTag = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
-let tagAr = [randomTag];
+const apiVersion = '2021-06-16';
 
-const postURL = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?version=2020-09-01';
-
-const getURL = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?space_id=' + process.env.SPACE_ID +
-  '&tag.value=' + randomTag + '&state=completed&deployment_id=' + process.env.DEPLOYMENT_ID + '&version=2020-09-01';
+let latestTag;
+const postURL = `https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?version=${apiVersion}`;
 
 //create a Watson Machine Learning job to solve a decision optimization problem using input files
 app.post('/send', async function (req, res) {
@@ -71,10 +67,13 @@ app.post('/send', async function (req, res) {
   };
 
   //add tag before we create a new job to solve a Decision optimization problem
-  defaultData.requestBody.tags = tagAr;
+  latestTag = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+  defaultData.requestBody.tags = [latestTag];
 
-  //push the parsed data from the input files as part of our request body
-  defaultData.requestBody.decision_optimization.input_data.push(customerDemandsObj, plantsObj);
+  //set the parsed data from the input files as part of our request body
+  defaultData.requestBody.decision_optimization.input_data = [ customerDemandsObj, plantsObj ];
+
+  console.log("SEND UPLOADED DATA");
 
   let response = await axios.post(postURL, defaultData.requestBody,
     {
@@ -83,14 +82,18 @@ app.post('/send', async function (req, res) {
         'Content-Type': 'application/json',
       }
     });
-  await res.send(JSON.stringify(response.data));
+  res.send(JSON.stringify(response.data));
 });
 
 //create a Watson Machine Learning job to solve a decision optimization problem using default data from the ./data.js file
 app.post('/sendDefault', async function (req, res) {
 
-  //add tag for default scenario
-  defaultData.data.tags = tagAr;
+
+  //add tag before we create a new job to solve a Decision optimization problem
+  latestTag = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+  defaultData.data.tags = [latestTag];
+
+  console.log("SEND DEFAULT DATA");
 
   let response = await axios.post(postURL, defaultData.data,
     {
@@ -99,11 +102,15 @@ app.post('/sendDefault', async function (req, res) {
         'Content-Type': 'application/json'
       }
     })
-  await res.send(JSON.stringify(response.data));
+  res.send(JSON.stringify(response.data));
 });
 
 //get Watson Machine Learning solution by querying for our job, with the tag we created earlier
 app.get('/decisionSolution', async function (req, res) {
+
+  const getURL = 'https://us-south.ml.cloud.ibm.com/ml/v4/deployment_jobs?space_id=' + process.env.SPACE_ID +
+    '&tag.value=' + latestTag + '&state=completed&deployment_id=' + process.env.DEPLOYMENT_ID +
+    '&version=' + apiVersion;
 
   let response = await axios.get(getURL,
     {
@@ -113,7 +120,7 @@ app.get('/decisionSolution', async function (req, res) {
       }
     })
   console.log(JSON.stringify(response.data));
-  await res.send(JSON.stringify(response.data));
+  res.send(JSON.stringify(response.data));
 });
 
 app.listen(process.env.PORT, process.env.HOST);
