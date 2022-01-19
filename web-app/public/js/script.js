@@ -7,6 +7,7 @@ const solution = document.getElementById('solution');
 const firstSpinner = document.getElementById('firstSpinner');
 const secondSpinner = document.getElementById('secondSpinner');
 const byod = document.getElementById('byod');
+const byodb = document.getElementById('byodb');
 const byodText = document.getElementById('byodText');
 const defaultScenario = document.getElementById('defaultScenario');
 const runScenarioBtn = document.getElementById('runScenario');
@@ -25,6 +26,27 @@ async function createDefaultJob() {
   outputText.hidden = false;
 
   var res = await fetch('http://localhost:8080/sendDefault', {
+    method: 'POST',
+    body: '',
+  });
+  var body = await res.text();
+  let jsonBody = JSON.parse(body);
+
+  //parse the output from Watson Machine Learning to grab the created at time
+  let createdAt = jsonBody.metadata.created_at;
+  firstSpinner.hidden = true;
+
+  //set the HTML for the job creation time
+  output.innerHTML += '<p id = "jobText" >Job created at: </p>' + '<span>' + createdAt + '</span>';
+  solutionUpdate.hidden = false;
+}
+
+//create DB job, uses data from DB
+async function createDbJob() {
+  firstSpinner.hidden = false;
+  outputText.hidden = false;
+
+  var res = await fetch('http://localhost:8080/sendDb', {
     method: 'POST',
     body: '',
   });
@@ -227,13 +249,25 @@ var myChart = new Chart(ctx, {
   }
 });
 
-//click on the bring your own data button
+//click on the bring your own data files button
 byod.addEventListener('click', async (e) => {
   form.hidden = false;
   byod.hidden = true;
+  byodb.hidden = true;
   byodText.hidden = true;
   defaultScenario.hidden = true;
   runScenarioBtn.hidden = true;
+});
+
+//click on the bring your own database button
+byodb.addEventListener('click', async (e) => {
+  runScenarioBtn.hidden = true;
+  defaultScenario.hidden = true;
+  byod.hidden = true;
+  byodb.hidden = true;
+  byodText.hidden = true;
+  defaultFlag = false;
+  await createDbJob();
 });
 
 //click on the run default scenario button
@@ -241,6 +275,7 @@ runScenarioBtn.addEventListener('click', async (e) => {
   runScenarioBtn.hidden = true;
   defaultScenario.hidden = true;
   byod.hidden = true;
+  byodb.hidden = true;
   byodText.hidden = true;
   defaultFlag = true;
   await createDefaultJob();
